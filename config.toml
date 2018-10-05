@@ -1,0 +1,48 @@
+baseURL = "https://prabhatsharma.in/"
+languageCode = "en-us"
+title = "Prabhat Sharma | Cloud, Machine Learning, Kubernetes"
+theme = "prabhat-simple"
+
+# We Used Ionicons Icon font for Icon, for more details check this link - https://ionicons.com/
+
+# Site Menus
+[menu]
+    # Navbar Menus
+    [[menu.nav]]
+        name    = "Gallery"
+        url     = "/gallery"
+        weight  = 2
+    [[menu.nav]]
+        name    = "Blog"
+        url     = "/blog"
+        weight  = 3
+
+# Site Params
+[params]
+    home = "Home"
+    logo = "images/logo4.png"
+    dateFormat = "6 January 2006"
+
+    # Banner Section
+    [params.banner]
+        enable  = true
+        bgImage = "images/slider3.jpg"
+        heading = "Hello, I am \"Prabhat Sharma\". I am a"
+        description = "Professionally, I work as a Solutions Architect and help people make best use of AWS"
+        [[params.banner.flipText]]
+            title   = "Builder"
+        [[params.banner.flipText]]
+            title   = "Father"
+        [[params.banner.flipText]]
+            title   = "Husband"
+        [[params.banner.flipText]]
+            title   = "Son"
+
+    # Homepage About Section
+    [params.about]
+        enable  = true
+        title   = "About Me"
+        content = "I am a technologist who loves dabbling with interesting technologies that have the potential for improving the lives of technology teams and non-technologists alike. Over a period of 13 years years of my professional experience, I have helped multiple organizations design, deploy and run large and small scale systems. <br><br> I am based out of San Francisco Bay area and can be reached at hi{{dot}}prabhat{{at}}gmail.com. <br><br> Apart from many other things, I have strengths in the area of:<br> <ol><li>Large scale system design</li><li>Cloud computing - AWS</li><li>Machine Learning</li></ol> I have following professional certifications:<br> <ol><li>AWS certified Solutions Architect Associate </li><li>AWS certified Sysops Associate</li><li>AWS certified Developer Associate</li><li>AWS certified Solutions Architect Professional</li><li>AWS certified DevOps Professional</li><li>Certified Kubernetes Administrator</li></ol> My favorite programming languages are <ol><li>Go</li><li>Python</li><li>Javascript (Node, Angular, React)</li></ol>"
+        image   = "images/about/me.jpg"
+
+    

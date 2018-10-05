@@ -1,0 +1,8 @@
+enable  : true
+galleryImages :
+  - image : images/gallery/prabhat1.jpg
+  - image : images/gallery/prabhat2.jpg
+  - image : images/gallery/prabhat3.jpg
+  - image : images/gallery/prabhat4.jpg
+  - image : images/gallery/prabhat5.jpg
+  - image : images/gallery/prabhat6.jpg
