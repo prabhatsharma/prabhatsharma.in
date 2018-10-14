@@ -51,7 +51,9 @@ Improve your speed by doing exams of 3 hours where you are solving 24 questions.
 Now let's understand how we can be fast. Go the imperative way as much as you can as its going to be much faster than being declarative. 
 You will be typing a lot of kubectl during the exam. A nice little trick that you can use to speed this up is set an alias
 
-- $ alias k=kubectl
+<pre><i style="color:blue">
+$ alias k=kubectl
+</pre></i>
 
 After this you can simply use the commands, like
 
@@ -62,19 +64,25 @@ See !! this is so much better :-)
 
 To create an nginx pod, instead of starting with a yaml file just run the following:
 
-- $ k run nginx --image=nginx --restart=Never
+<pre><i style="color:blue">
+$ k run nginx --image=nginx --restart=Never
+</pre></i>
 
 To create a deployment with 2 replicas:
 
-- $ k run nginx --image=nginx --replicas=2
+<pre><i style="color:blue">
+$ k run nginx --image=nginx --replicas=2
+</pre></i>
 
 In some cases, you will need to add specifics to a pod like adding a volume. In that case, you cannot rely solely on imperative commands. However imperative commands are still a good starting point for that. Let's look at this:
 
+<pre><i style="color:blue">
 $ k run nginx --image=nginx --restart=Never --dry-run -o yaml
+</pre></i>
 
 will give following output that you can use as base.
 
-```yaml
+<pre><i style="color:blue">
 apiVersion: v1
 kind: Pod
 metadata:
@@ -91,15 +99,19 @@ spec:
   dnsPolicy: ClusterFirst
   restartPolicy: Never
 status: {}
-```
+</pre></i>
 
 To save the above output to a file just redirect it like this.
 
+<pre><i style="color:blue">
 $ k run nginx --image=nginx --restart=Never --dry-run -o yaml > nginx-pod.yaml
+</pre></i>
 
 To see the options during the exam on how to use the imperative commands just run the following command:
 
+<pre><i style="color:blue">
 $ k run
+</pre></i>
 
 This will show the help. Help will have several examples of creating a pod, deployment, job, scheduled job etc which you could simply copy. Be familiar with the options by practicing them.
 
