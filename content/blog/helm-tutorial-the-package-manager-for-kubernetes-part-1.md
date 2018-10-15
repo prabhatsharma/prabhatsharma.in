@@ -45,20 +45,35 @@ Charts can be stored in a remote repository or they can be locally on your lapto
 
 Now let's get to the steps to make everything up and running.
 
-1. Install helm by following steps from [https://docs.helm.sh/using_helm/](https://docs.helm.sh/using_helm/)
-1. Install tiller by running - $ helm init
+1. Install helm by downloading the release from [https://github.com/helm/helm/releases](https://github.com/helm/helm/releases) for your platform and put it in path. For e.g. for mac
+<pre><i style="color:blue">
+$ wget -c https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-darwin-amd64.tar.gz -O - | tar -xz 
+$ sudo mv ./darwin-amd64/helm /usr/local/bin/
+</pre></i>
+1. Install tiller by running: 
+<pre><i style="color:blue">
+$ helm init
+</pre></i>
+1. Now run following commands to give permissions to tiller for performing operations
+<pre><i style="color:blue">
+$ kubectl -n kube-system create serviceaccount tiller
+$ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+$ kubectl -n kube-system patch deploy tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
+</pre></i>
+
+Using above commands you are giving cluster-admin rights to tiller so that it can perform any and all tasks in the cluster. This works well in a development environment, however you would want to limit access rights of tiller to only what is required to maintain security and conform to least privilege principle in production and untrusted environments.
 
 Once you have helm and tiller installed you are good to go.
 
 To search for a particular chart in the default repo - eg. mysql, you would run:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 $ helm search mysql
-</pre></i></span>
+</pre></i>
 
 OUTPUT:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 NAME                            	CHART VERSION	APP VERSION	DESCRIPTION
 incubator/mysqlha               	0.4.0        	5.7.13     	MySQL cluster with a single master and zero or more slave...
 stable/mysql                    	0.10.1       	5.7.14     	Fast, reliable, scalable, and easy to use open-source rel...
@@ -69,19 +84,19 @@ stable/percona-xtradb-cluster   	0.2.0        	5.7.19     	free, fully compatibl
 stable/phpmyadmin               	1.1.2        	4.8.2      	phpMyAdmin is an mysql administration frontend
 stable/gcloud-sqlproxy          	0.5.0        	1.11       	Google Cloud SQL Proxy
 stable/mariadb                  	5.0.9        	10.1.36    	Fast, reliable, scalable, and easy to use open-source rel...
-</pre></i></span>
+</pre></i>
 
 To do our experiments let's create a new namespace:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 $ kubectl create namespace hex
-</pre></i></span>
+</pre></i>
 
 To install mysql you could run:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 $ helm install stable/mysql --name=mysql-dev --namespace=hex
-</pre></i></span>
+</pre></i>
 
 This will give following output:
 
@@ -121,19 +136,13 @@ MySQL can be accessed via port 3306 on the following DNS name from within your c
 mysql-dev.hex.svc.cluster.local
 
 To get your root password run:
-
     MYSQL_ROOT_PASSWORD=$(kubectl get secret --namespace hex mysql-dev -o jsonpath="{.data.mysql-root-password}" | base64 --decode; echo)
 
 To connect to your database:
-
 1. Run an Ubuntu pod that you can use as a client:
-
     kubectl run -i --tty ubuntu --image=ubuntu:16.04 --restart=Never -- bash -il
-
 2. Install the mysql client:
-
     $ apt-get update && apt-get install mysql-client -y
-
 3. Connect using the mysql cli, then provide your password:
     $ mysql -h mysql-dev -p
 
@@ -151,63 +160,63 @@ Congratulations!!! Now you have a running mysql database.
 
 Every time you install a chart helm creates a release. A release can be upgraded or deleted. To list existing releases run:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 $ helm ls
-</pre></i></span>
+</pre></i>
 
 This would give the following output:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 NAME       	REVISION	UPDATED                 	STATUS  	CHART                   	APP VERSION	NAMESPACE
 mysql-dev  	1       	Sat Oct 13 22:06:38 2018	DEPLOYED	mysql-0.10.1            	5.7.14     	hex
 </i></pre>
 
 To delete the release you can run:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 $ helm delete mysql-dev 
 </i></pre>
 
 Try again
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 $ helm ls
-</pre></i></span>
+</pre></i>
 
 You should get no output:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 NAME       	REVISION	UPDATED                 	STATUS  	CHART                   	APP VERSION	NAMESPACE
-</pre></i></span>
+</pre></i>
 
 In fact helm does not totally delete the release. To see the deleted releases you can try:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 $ helm ls --all
-</pre></i></span>
+</pre></i>
 
 You should get no output:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 NAME              	REVISION	UPDATED                 	STATUS  	CHART                   	APP VERSION	NAMESPACE
 mysql-dev         	1       	Sat Oct 13 22:06:38 2018	DELETED 	mysql-0.10.1            	5.7.14     	hex
-</pre></i></span>
+</pre></i>
 
 To delete the release fully you can run:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 $ helm delete mysql-dev --purge
-</pre></i></span>
+</pre></i>
 
 To see various helm commands just run:
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 $ helm
-</pre></i></span>
+</pre></i>
 This will show you all available commands that you can use. To learn more about a particular command you can type --help. e.g.
 
-<span><pre><i style="color:blue">
+<pre><i style="color:blue">
 $ helm list --help
-</pre></i></span>
+</pre></i>
 
 Thats all for this post. 
