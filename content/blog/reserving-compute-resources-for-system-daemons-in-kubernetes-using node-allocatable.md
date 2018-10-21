@@ -1,8 +1,8 @@
 ---
-title: "Reserving Compute Resources for System Daemons in Kubernetes"
+title: "Reserving Compute Resources for System Daemons in Kubernetes using node-allocatable"
 date: 2018-10-19T17:10:32-07:00
 draft: false
-tags: ["k8s", "kubernetes", "helm", "cgroup", "node-allocatable", "qos"]
+tags: ["k8s", "kubernetes", "cgroup", "node-allocatable", "qos"]
 author: Prabhat Sharma
 type: post
 image: images/blog/computer-chip.png
