@@ -18,9 +18,9 @@ Let's get on to the steps to get it up and running. Our goal would be following:
 
 1. Access cluster resources locally from my laptop. e.g. I should be able to access a ClusterIP service nginx from my local laptop by doing:
 
-<i style="color:blue"><pre>
+{{< highlight shell>}}
 $ curl nginx.default.svc.cluster.local
-</pre></i>
+{{< / highlight >}}
 To achieve the above goal we will do following:
 
 1. set up openvpn in the cluster
@@ -33,50 +33,47 @@ To achieve the above goal we will do following:
 
 To make our life easier we will use helm. (You can look at [this article](/blog/helm-tutorial-the-package-manager-for-kubernetes-part-1/) on how to install helm if you don't already have it installed). Let's search for a helm chart for openvpn:
 
-<i style="color:blue">
+{{< highlight shell>}}
 $ helm search openvpn
-</i>
+{{< / highlight >}}
 
 output:
-<pre><i style="color:blue">
+{{< highlight shell>}}
 NAME          	CHART VERSION	APP VERSION	DESCRIPTION
 stable/openvpn	3.9.1        	1.1.0      	A Helm chart to install an openvpn server inside a kubern...
-</i></pre>
+{{< / highlight >}}
 
 Now let's install openvpn:
 
-<i style="color:blue">
+{{< highlight shell>}}
 $ helm install stable/openvpn --name=openvpn --namespace=openvpn
-</i>
+{{< / highlight >}}
 
 This will deploy openvpn and will give you the steps that you need to follow to create an OpenVPN configuration file.
 
 Now let's check if our service is up and running:
 
-<i style="color:blue">
+{{< highlight shell>}}
 $ kubectl get svc -n openvpn
-</i>
+{{< / highlight >}}
 
 output:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 NAME      TYPE           CLUSTER-IP       EXTERNAL-IP                                                              PORT(S)         AGE
 openvpn   LoadBalancer   10.100.166.191   a22678678768456464656816........-123452019.us-west-2.elb.amazonaws.com   443:31015/TCP   3m
-</i></pre>
+{{< / highlight >}}
 
 Now let's follow the steps provided by the helm chart:
 
-<i style="color:blue">
-<pre>
+{{< highlight shell>}}
 $ POD_NAME=$(kubectl get pods --namespace "openvpn" -l "app=openvpn,release=openvpn" -o jsonpath='{ .items[0].metadata.name }')
 $ SERVICE_NAME=$(kubectl get svc --namespace "openvpn" -l "app=openvpn,release=openvpn" -o jsonpath='{ .items[0].metadata.name }')
 $ SERVICE_IP=$(kubectl get svc --namespace "openvpn" "$SERVICE_NAME" -o go-template='{{ range $k, $v := (index .status.loadBalancer.ingress 0)}}{{ $v }}{{end}}')
 $ KEY_NAME=kubeVPN
 $ kubectl --namespace "openvpn" exec -it "$POD_NAME" /etc/openvpn/setup/newClientCert.sh "$KEY_NAME" "$SERVICE_IP"
 $ kubectl --namespace "openvpn" exec -it "$POD_NAME" cat "/etc/openvpn/certs/pki/$KEY_NAME.ovpn" > "$KEY_NAME.ovpn"
-</pre>
-</i>
-
+{{< / highlight >}}
 This will give you a file kubeVPN.ovpn in your current folder.
 
 ## Step 2 - Install OpenVPN client on your laptop
@@ -88,20 +85,20 @@ Use the generated kubeVPN.ovpn file to connect to VPN.
 ## Step 4 - Create an nginx deployment and a service
 To test if we are able to connect to cluster services from our laptop let's create an nginx service.
 
-<i style="color:blue"><pre>
+{{< highlight shell>}}
 $ kubectl create deployment nginx --image=nginx
 $ kubectl expose deployment/nginx --port=80
-</pre></i>
+{{< / highlight >}}
 
 Let's take a look at the nginx service that we create by running:
 
-<i style="color:blue"><pre>
+{{< highlight shell>}}
 $ kubectl get svc nginx
-</pre></i>
+{{< / highlight >}}
 
 output:
 
-<i style="color:blue"><pre>
+{{< highlight shell>}}
 Name:              nginx
 Namespace:         default
 Labels:            app=nginx
@@ -114,14 +111,14 @@ TargetPort:        80/TCP
 Endpoints:         192.168.239.235:80
 Session Affinity:  None
 Events:            <none>
-</pre></i>
+{{< / highlight >}}
 
 ## Step 5 - Access the nginx service using curl and browser
 Now let's try to connect to nginx service:
 
-<i style="color:blue"><pre>
+{{< highlight shell>}}
 $ curl nginx.default.svc.cluster.local
-</pre></i>
+{{< / highlight >}}
 
 This will give you the output. You could also check this in browser:
 

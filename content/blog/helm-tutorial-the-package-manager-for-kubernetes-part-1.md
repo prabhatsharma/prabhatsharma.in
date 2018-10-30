@@ -22,9 +22,9 @@ Doing this by yourself can be good amount of work. You may also try to do some s
 
 Assuming you have helm installed, setting up a replicated mongodb cluster in kubernetes will take just 1 line command:
 
-<span><pre><i style="color:blue">
+<span>{{< highlight shell>}}
 $ helm install stable/mongodb-replicaset
-</pre></i></span>
+{{< / highlight >}}</span>
 
 After you run the above command, it will take a couple of minutes and your mongodb cluster is ready. Wow!!! that was super easy.
 
@@ -46,20 +46,22 @@ Charts can be stored in a remote repository or they can be locally on your lapto
 Now let's get to the steps to make everything up and running.
 
 1. Install helm by downloading the release from [https://github.com/helm/helm/releases](https://github.com/helm/helm/releases) for your platform and put it in path. For e.g. for mac
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ wget -c https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-darwin-amd64.tar.gz -O - | tar -xz 
 $ sudo mv ./darwin-amd64/helm /usr/local/bin/
-</pre></i>
+{{< / highlight >}}
 1. Install tiller by running: 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ helm init
-</pre></i>
+{{< / highlight >}}
 1. Now run following commands to give permissions to tiller for performing operations
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ kubectl -n kube-system create serviceaccount tiller
 $ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
 $ kubectl -n kube-system patch deploy tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
-</pre></i>
+{{< / highlight >}}
+
+
 
 Using above commands you are giving cluster-admin rights to tiller so that it can perform any and all tasks in the cluster. This works well in a development environment, however you would want to limit access rights of tiller to only what is required to maintain security and conform to least privilege principle in production and untrusted environments.
 
@@ -67,13 +69,13 @@ Once you have helm and tiller installed you are good to go.
 
 To search for a particular chart in the default repo - eg. mysql, you would run:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ helm search mysql
-</pre></i>
+{{< / highlight >}}
 
 OUTPUT:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 NAME                            	CHART VERSION	APP VERSION	DESCRIPTION
 incubator/mysqlha               	0.4.0        	5.7.13     	MySQL cluster with a single master and zero or more slave...
 stable/mysql                    	0.10.1       	5.7.14     	Fast, reliable, scalable, and easy to use open-source rel...
@@ -84,23 +86,23 @@ stable/percona-xtradb-cluster   	0.2.0        	5.7.19     	free, fully compatibl
 stable/phpmyadmin               	1.1.2        	4.8.2      	phpMyAdmin is an mysql administration frontend
 stable/gcloud-sqlproxy          	0.5.0        	1.11       	Google Cloud SQL Proxy
 stable/mariadb                  	5.0.9        	10.1.36    	Fast, reliable, scalable, and easy to use open-source rel...
-</pre></i>
+{{< / highlight >}}
 
 To do our experiments let's create a new namespace:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ kubectl create namespace hex
-</pre></i>
+{{< / highlight >}}
 
 To install mysql you could run:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ helm install stable/mysql --name=mysql-dev --namespace=hex
-</pre></i>
+{{< / highlight >}}
 
 This will give following output:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 NAME:   mysql-dev
 LAST DEPLOYED: Sat Oct 13 22:06:38 2018
 NAMESPACE: hex
@@ -154,69 +156,69 @@ To connect to your database directly from outside the K8s cluster:
     kubectl port-forward svc/mysql-dev 3306
 
     mysql -h ${MYSQL_HOST} -P${MYSQL_PORT} -u root -p${MYSQL_ROOT_PASSWORD}
-</i></pre>
+{{< / highlight >}}
 
 Congratulations!!! Now you have a running mysql database.
 
 Every time you install a chart helm creates a release. A release can be upgraded or deleted. To list existing releases run:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ helm ls
-</pre></i>
+{{< / highlight >}}
 
 This would give the following output:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 NAME       	REVISION	UPDATED                 	STATUS  	CHART                   	APP VERSION	NAMESPACE
 mysql-dev  	1       	Sat Oct 13 22:06:38 2018	DEPLOYED	mysql-0.10.1            	5.7.14     	hex
-</i></pre>
+{{< / highlight >}}
 
 To delete the release you can run:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ helm delete mysql-dev 
-</i></pre>
+{{< / highlight >}}
 
 Try again
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ helm ls
-</pre></i>
+{{< / highlight >}}
 
 You should get no output:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 NAME       	REVISION	UPDATED                 	STATUS  	CHART                   	APP VERSION	NAMESPACE
-</pre></i>
+{{< / highlight >}}
 
 In fact helm does not totally delete the release. To see the deleted releases you can try:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ helm ls --all
-</pre></i>
+{{< / highlight >}}
 
 You should get no output:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 NAME              	REVISION	UPDATED                 	STATUS  	CHART                   	APP VERSION	NAMESPACE
 mysql-dev         	1       	Sat Oct 13 22:06:38 2018	DELETED 	mysql-0.10.1            	5.7.14     	hex
-</pre></i>
+{{< / highlight >}}
 
 To delete the release fully you can run:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ helm delete mysql-dev --purge
-</pre></i>
+{{< / highlight >}}
 
 To see various helm commands just run:
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ helm
-</pre></i>
+{{< / highlight >}}
 This will show you all available commands that you can use. To learn more about a particular command you can type --help. e.g.
 
-<pre><i style="color:blue">
+{{< highlight shell>}}
 $ helm list --help
-</pre></i>
+{{< / highlight >}}
 
 Thats all for this post. 

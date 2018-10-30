@@ -55,7 +55,7 @@ Now let's get into details.
 
 - 1. Create an IAM policy that will be used by the IAM users.
 
-You don't really need to create a new policy, but we will create a minimal polcy that is required. Essentially we need the user to have 2 rights. eks:ListCluster, eks:DescribeCluster . These will be used to generate the kubeconfig for connecting to the cluster by Adam and Dave.
+You don't really need to create a new policy, but we will create a minimal policy that is required. Essentially we need the user to have 2 rights. eks:ListCluster, eks:DescribeCluster . These will be used to generate the kubeconfig for connecting to the cluster by Adam and Dave.
 
 Now let's create the policy.
 {{< highlight shell>}}
@@ -295,14 +295,6 @@ Voila! This succeeds as expected. Congratulations Dave.
 
 {{< highlight shell>}}
 $ kubectl get ns
-{{< / highlight >}}
-
-Output:
-
-{{< highlight shell>}}
-NAME                       READY   STATUS    RESTARTS   AGE
-mongodb-84b7c86ff5-jqz97   1/1     Running   0          6d
-mysql-58d5cb6fd4-rznkd     1/1     Running   0          5d
 {{< / highlight >}}
 
 Output:
