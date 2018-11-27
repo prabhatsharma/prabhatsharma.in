@@ -197,7 +197,7 @@ In fact helm does not totally delete the release. To see the deleted releases yo
 $ helm ls --all
 {{< / highlight >}}
 
-You should get no output:
+You should get output:
 
 {{< highlight shell>}}
 NAME              	REVISION	UPDATED                 	STATUS  	CHART                   	APP VERSION	NAMESPACE

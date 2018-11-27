@@ -157,7 +157,7 @@ Allocatable:<i style="color:red">
  pods:               29
 </pre></i>
 
-Lok at the differences in cpu, ephemeral storage and memory under the sections <b>Capacity</b> and <b>Allocatable</b>.
+Look at the differences in cpu, ephemeral storage and memory under the sections <b>Capacity</b> and <b>Allocatable</b>.
 
 Congrats!!! you have been able to set aside resources for system and kubernetes processes along with setting up eviction thresholds to prevent the node from becoming unavailable.
 

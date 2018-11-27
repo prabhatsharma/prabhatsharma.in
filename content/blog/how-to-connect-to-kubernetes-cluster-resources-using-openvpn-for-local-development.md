@@ -126,4 +126,4 @@ This will give you the output. You could also check this in browser:
 
 We have successfully accessed our kubernetes ClusterIP service from our laptop. 
 
-You could access any service in your kubernetes cluster using this mechanism during your development from yur laptop where your code needs to access those services.
+You could access any service in your kubernetes cluster using this mechanism during your development from your laptop where your code needs to access those services.
