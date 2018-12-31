@@ -43,19 +43,23 @@ Create a namespace logs and install elasticsearch
 $ helm install stable/elasticsearch --name=elasticsearch --namespace=logs
 {{< / highlight >}}
 
-Install fluent-bit and pass the elasticsearch service endpoint to it during installation. This chart will install a daemonset that will start a fluent-bit pod on each node. This is the workhorse of log collection. It will pick the logs from the host node and push it to elasticsearch. Elasticsearch service URL is http://elasticsearch-client:9200
+Install fluent-bit and pass the elasticsearch service endpoint to it during installation. This chart will install a daemonset that will start a fluent-bit pod on each node. This is the workhorse of log collection. It will pick the logs from the host node and push it to elasticsearch.
 
 {{< highlight shell>}}
 $ helm install stable/fluent-bit --name=fluent-bit --namespace=logs --set backend.type=es --set backend.es.host=elasticsearch-client
 {{< / highlight >}}
 
-At this point you will have logs collecting in elastisearch. Now you will want to search logs. This is where you install kibana.
+At this point you will have logs collecting in elasticsearch. Now you will want to search logs. This is where you install kibana.
 
 {{< highlight shell>}}
 $ helm install stable/kibana --name=kibana --namespace=logs --set env.ELASTICSEARCH_URL=http://elasticsearch-client:9200
 {{< / highlight >}}
 
-Now you have everything setup. To reach the kibana dashboard make it available on your machine locally by forwarding the port.
+Now you have everything setup. 
+
+## Accessing logs
+
+To reach the kibana dashboard make it available on your machine locally by forwarding the port.
 
 {{< highlight shell>}}
 $ kubectl -n logs port-forward svc/kibana 9080:443
@@ -69,4 +73,6 @@ You are all setup.
 A word of caution. Do not expose kibana dashboard service yet using a service type of Loadbalancer or Ingress as it will open it to the world without any authentication. We will look at how to add authentication to kubernetes services in a future post.
 </p>
 
-
+# Comments
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>

@@ -66,3 +66,7 @@ Advantages of using this approach:
 
 This is how I have built [https://prabhatsharma.in](https://prabhatsharma.in) that hardly costs me anything and has just 2 components in its architecture. Go ahead, give it a shot. You will love it.
 
+# Comments
+
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>

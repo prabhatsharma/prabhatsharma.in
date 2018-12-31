@@ -15,3 +15,6 @@ For those of us dealing with microservices of decent complexity it is imperative
 <font size=2>Architecture reference at: [https://eng.uber.com/distributed-tracing/](https://eng.uber.com/distributed-tracing/)</font>
 
 
+# Comments
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>

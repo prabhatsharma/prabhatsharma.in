@@ -318,4 +318,9 @@ test1            Active   14d
 
 Congratulations. This works for Adam. 
 
-Adam can run many more commands in any namespace with success
+Adam can run many more commands in any namespace with success.
+
+
+# Comments
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
