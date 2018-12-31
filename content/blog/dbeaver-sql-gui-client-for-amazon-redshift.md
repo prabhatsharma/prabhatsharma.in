@@ -1,7 +1,7 @@
 ---
 title: "DBeaver - SQL GUI Client for Amazon Redshift"
 date: 2018-12-30T17:43:01-08:00
-draft: true
+draft: false
 image: images/blog/dbeaver-small.png
 tags: ["redshift", "data warehousing", "aws", "amazon", "gui"]
 author: Prabhat Sharma
