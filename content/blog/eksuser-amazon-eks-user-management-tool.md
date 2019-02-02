@@ -164,6 +164,16 @@ $ eksuser delete --user=prabhat
 
 This will remove the user from aws-auth configmap but won't delete the IAM user itself from AWS IAM.
 
+To provide the user with admin privileges:
+
+{{< highlight shell>}}
+$ eksuser add --user=prabhat --group=system:masters
+{{< / highlight >}}
+
+From [https://kubernetes.io/docs/reference/access-authn-authz/rbac/](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) - <i>Allows super-user access to perform any action on any resource. When used in a ClusterRoleBinding, it gives full control over every resource in the cluster and in all namespaces. When used in a RoleBinding, it gives full control over every resource in the rolebinding's namespace, including the namespace itself.</i>
+
+
+
 ## 4. Configure machine of user who was added to the cluster by creating a kube-config file
 
 You will need to configure the machine of the user who will be accessing the cluster. 
