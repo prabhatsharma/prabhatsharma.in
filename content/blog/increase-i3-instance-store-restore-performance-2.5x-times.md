@@ -1,7 +1,7 @@
 ---
-title: "EC2 i3 instance store restore performance"
+title: "Increase i3 instance store restore by 2.5x times"
 date: 2019-06-03T10:12:31-08:00
-draft: true
+draft: false
 image: images/blog/ebs+i3.png
 tags: ["ebs", "ec2", "instance store", "aws", "performance",  "IO", "st1"]
 author: Prabhat Sharma
