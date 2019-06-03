@@ -7,6 +7,7 @@ tags: ["blog", "eks", "kubernetes", "aws", "authentication", "iam"]
 author: Prabhat Sharma
 type: post
 ---
+<b><i>Note: This blog provides a deep dive on EKS authentication. If your goal is to be able to just add/delete eks users then follow this [eksuser-amazon-eks-user-management-tool](../eksuser-amazon-eks-user-management-tool)</i></b>
 
 When you create an EKS cluster it uses credentials of the user creating the cluster to set things up and assigns the user cluster-admin rights on the cluster through kubernetes RBAC.
 
@@ -320,7 +321,12 @@ Congratulations. This works for Adam.
 
 Adam can run many more commands in any namespace with success.
 
+# Bonus
+
+Now the above steps are a bit too much just to add/delete users. I built an utility tool to make it easy to manage EKS users. It's called eksuser. Head over to [eksuser-amazon-eks-user-management-tool](../eksuser-amazon-eks-user-management-tool) to find out, how it works.
+
 
 # Comments
 <div id="commento"></div>
 <script src="https://cdn.commento.io/js/commento.js"></script>
+
