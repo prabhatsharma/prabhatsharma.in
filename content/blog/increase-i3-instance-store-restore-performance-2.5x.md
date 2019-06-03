@@ -1,5 +1,5 @@
 ---
-title: "Increase i3 instance store restore by 2.5x times"
+title: "Increase i3 instance store restore by 2.5x"
 date: 2019-06-03T10:12:31-08:00
 draft: false
 image: images/blog/ebs+i3.png
