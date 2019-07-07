@@ -21,7 +21,7 @@
 <section class="single-post">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 {{ with .Params.image }}
                 <div class="post-img">
                     <img class="img-fluid" alt="" src="{{ . | absURL }}">
@@ -30,6 +30,9 @@
                 <div class="post-content">
                     {{ .Content }}
                 </div>
+            </div>
+            <div class="col-md-2">
+                    {{ partial "sidebar" . }}
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@ title: "Amazon EKS IAM authentication: How to add an IAM user"
 date: 2018-10-26T08:26:08-07:00
 image: images/blog/eks.svg
 draft: false
-tags: ["blog", "eks", "kubernetes", "aws", "authentication", "iam"]
+tags: ["eks", "kubernetes", "aws", "authentication", "iam"]
 author: Prabhat Sharma
 type: post
 ---

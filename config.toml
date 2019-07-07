@@ -1,6 +1,7 @@
 baseURL = "https://prabhatsharma.in/"
 languageCode = "en-us"
 title = "Prabhat Sharma | Cloud, Machine Learning, Kubernetes"
+# theme = "silhouette-hugo"
 theme = "prabhat-simple"
 
 # We Used Ionicons Icon font for Icon, for more details check this link - https://ionicons.com/
