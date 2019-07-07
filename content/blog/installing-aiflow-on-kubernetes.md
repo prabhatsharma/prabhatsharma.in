@@ -277,3 +277,7 @@ Now point your browser to http://localhost:8080
 You can setup an ingress in front of your airflow-web service to make it accessible over internet.
 
 Congratulations You are up and running with airflow!!!
+
+# Comments
+<div id="commento"></div>
+<script src="https://cdn.commento.io/js/commento.js"></script>
