@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Kubernetes Volumes - Prabhat Sharma</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					Kubernetes - Storage
+					<br><br><br>
+					Prabhat Sharma - Solutions Architect
+				</section>
+				<section>
+					<h1>Volumes</h1>
+					<ul>
+						<li>Storage on worker node on which pod is running</li>
+						<li>Lifetime, same as that of pod</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Common Volume Types</h3>
+
+					<ul>
+						<li><a href="https://kubernetes.io/docs/concepts/storage/volumes/#awselasticblockstore">awsElasticBlockStore</a></li>
+						<li>ConfigMap</li>
+						<li>emptyDir</li>
+						<li>local</li>
+						<li>hostPath</li>
+						<li>nfs</li>
+						<li>secret</li>
+						<li>persistentVolumeClaim</li>
+						<li>projected</li>
+						<li>portworxVolume</li>
+						<li>csi</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Persistent Volumes & Persistent Volume Claim</h4>
+					<img src="images/pvc.png">
+				</section>
+				<section>
+					<h4>StorageClass</h4>
+					<pre>
+						<code data-trim data-noescape>
+								apiVersion: storage.k8s.io/v1
+								kind: StorageClass
+								metadata:
+								  name: gp2
+								parameters:
+								  fsType: ext4
+								  type: gp2
+								provisioner: kubernetes.io/aws-ebs
+								reclaimPolicy: Delete
+								volumeBindingMode: Immediate
+						</code>
+					</pre>
+				</section>
+				<section>
+						<h4>PersistentVolume</h4>
+						<pre>
+							<code data-trim data-noescape>
+								apiVersion: v1
+								kind: PersistentVolume
+								metadata:
+								name: pv-1
+								spec:
+								awsElasticBlockStore:
+								  fsType: ext4
+								  volumeID: aws://us-west-2a/vol-0996e4a8ae4655b04
+								accessModes:
+								  - ReadWriteOnce
+								capacity:
+								  storage: 1Gi
+								storageClassName: gp2
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h4>PersistentVolumeClaim</h4>
+						<pre>
+							<code data-trim data-noescape>
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: myclaim2
+spec:
+  accessModes:
+  - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: gp2
+  volumeName: pv-1
+							</code>
+						</pre>
+					</section>
+				
+				<section>
+						<h4>Persistent Volumes & Dynamic Provisioning</h4>
+						<img src="images/pvc-dynamic.png">
+					</section>
+				<section>
+					<h1>Thank You</h1>
+					<h2>Questions?</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>

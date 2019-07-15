@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Kubernetes StatefulSets - Prabhat Sharma</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					Kubernetes - StatefulSets
+					<br><br><br>
+					Prabhat Sharma - Solutions Architect
+				</section>
+				<section>
+					<h3>Why StatefulSets</h3>
+					<p>Stateful Applications</p>
+					<ul class="fragment">
+						<li>Postgres</li>
+						<li>MongoDB</li>
+						<li>Redis</li>
+						<li>Any other DB</li>
+						<li>NFS</li>
+						<li>... </li>
+					</ul>
+				</section>
+				<section>
+					<h3>What is a StatefulSet?</h3>
+					<ul>
+						<li class="fragment">For managing stateful applications
+							<ul>
+								<li>Think persistent storage</li>
+							</ul>
+						</li>
+						<li class="fragment">Like a Deployment
+							<ul>
+								<li>Managed pods are identical</li>
+							</ul>
+						</li>
+						<li class="fragment">Unike a Deployment
+							<ul>
+								<li>Maintains Sticky identity for each pod</li>
+								<li>Pods not interchangeable</li>
+								<li>Each pod has persistent identifier that is maintained across rescheduling</li>
+								<li>Scaling is not seamless</li>
+							</ul>
+						</li>
+					</ul>
+
+				</section>
+				<section>
+					<h3>Sample Yaml Definition</h3>
+					<a href="https://kubernetes.io/docs/tutorials/stateful-application/cassandra/#using-a-statefulset-to-create-a-cassandra-ring">Cassandra</a>
+				</section>
+				<section>
+					<h1>Thank You</h1>
+					<h2>Questions?</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>

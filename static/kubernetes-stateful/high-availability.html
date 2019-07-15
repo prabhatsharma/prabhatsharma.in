@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Kubernetes - High Availabilty and Lifecycle management for Apps - Prabhat Sharma</title>
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/white.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				Kubernetes - High Availabilty and Lifecycle management for Applications
+				<br><br><br>
+				Prabhat Sharma - Solutions Architect
+			</section>
+			<section>
+				<h3>Basic principles</h3>
+				<h3 class="fragment"> Redundancy is the key </h3>
+				<p class="fragment">If you have <b>two</b>, then you have <b>one</b>. </p>
+				<p class="fragment">If you have <b>one</b>, then you have <b>none</b>.</p>
+			</section>
+			<section>
+				<h3>How to achieve redundancy</h3>
+				<ol>
+					<li class="fragment">Application specific mechanisms
+						<ul>
+							<li>Replication</li>
+							<li>e.g. MySQL, MongoDB, Postgres</li>
+							<li>Implemented via helm charts and operators</li>
+						</ul>
+					</li>
+					<li class="fragment">Storage Layer
+						<ul>
+							<li><a href="https://en.wikipedia.org/wiki/Standard_RAID_levels#RAID_1">RAID 1</a></li>
+							<li>DRBD</li>
+							<li>Portworx</li>
+						</ul>
+					</li>
+				</ol>
+			</section>
+			<section>
+				<h3>Lifecycle management</h3>
+				<p>HA is not enough. We need to manage day 1 & day 2</p>
+				<ol>
+					<li class="fragment">Day 1
+						<ol>
+							<li>Installation</li>
+							<li>High Availabilty</li>
+						</ol>
+					</li>
+					<li class="fragment"> Day 2
+						<ol>
+							<li>Upgrades</li>
+							<li>Backup & restore</li>
+							<li>Auto recovery</li>
+							<li>Automatic/On-demand scalability</li>
+							<li>Configuration management</li>
+							<li>Deep insights</li>
+						</ol>
+					</li>
+				</ol>
+			</section>
+			<section>
+					<h3>Helm</h3>
+						<p>
+								Helm helps you manage Kubernetes applications — Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
+						</p>
+				</section>
+			<section>
+				<h3>Operator</h3>
+				<p>
+						“A Kubernetes Operator is an abstraction for deploying non-trivial applications on Kubernetes. It wraps the logic for deploying and operating an application using Kubernetes constructs.” –Richard Laub, staff cloud engineer at Nebulaworks
+				</p>
+			</section>
+			<section>
+				<p>Solutions for Application aware deployment</p>
+				<table>
+					<thead>
+						<tr>
+							<td><b>Solution</b></td>
+							<td><b>Pros</b></td>
+							<td><b>Cons</b></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Manual Deployment</td>
+							<td>None</td>
+							<td>Time taking. Difficult</td>
+						</tr>
+						<tr>
+							<td>Helm charts</td>
+							<td>Easy</td>
+							<td>Day 2 ops missing</td>
+						</tr>
+						<tr>
+							<td>Operators</td>
+							<td>Day 1 & Day 2 covered</td>
+							<td>Still maturing</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			<section>
+				<h3>Elasticsearch operator</h3>
+				<p><a href="https://www.elastic.co/guide/en/cloud-on-k8s/0.8/k8s-quickstart.html">Elasticsearch Operator Quickstart</a> </p>
+				<pre>
+					<code>
+apiVersion: elasticsearch.k8s.elastic.co/v1alpha1
+kind: Elasticsearch
+metadata:
+  name: quickstart
+spec:
+  version: 7.1.0
+  nodes:
+  - nodeCount: 1
+  config:
+    node.master: true
+    node.data: true
+    node.ingest: true
+					</code>
+				</pre>
+			</section>
+			<section>
+				<h1>Thank You</h1>
+				<h2>Questions?</h2>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>
