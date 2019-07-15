@@ -9,7 +9,7 @@ type: post
 
 Created some slides for running stateful applications on kubernetes.
 
-1. [Stateful Sets](../../kubernetes-stateful/statefulsets.html)
-2. [Storage](../../kubernetes-stateful/storage.html)
-2. [High availability](../../kubernetes-stateful/high-availability.html)
+1. [Stateful Sets](../../revealjs/statefulsets.html)
+2. [Storage](../../revealjs/storage.html)
+2. [High availability](../../revealjs/high-availability.html)
 
