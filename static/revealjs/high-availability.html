@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/white.css">
 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 	<!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/monokai.css">
 
@@ -28,9 +30,12 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				Kubernetes - High Availabilty and Lifecycle management for Applications
+				Kubernetes - High Availabilty and Lifecycle management for Stateful Applications
 				<br><br><br>
-				Prabhat Sharma - Solutions Architect
+				Prabhat Sharma
+				<br><br><br>
+        <i class="fab fa-twitter" style="color: lightskyblue"></i> <a href="https://twitter.com/hiprabhat">@hiprabhat</a> <br>
+        <i class="fab fa-github"></i> <a href="https://github.com/prabhatsharma">@prabhatsharma</a>
 			</section>
 			<section>
 				<h3>Basic principles</h3>
@@ -122,7 +127,7 @@
 			</section>
 			<section>
 				<h3>Elasticsearch operator</h3>
-				<p><a href="https://www.elastic.co/guide/en/cloud-on-k8s/0.8/k8s-quickstart.html">Elasticsearch Operator Quickstart</a> </p>
+				
 				<pre>
 					<code>
 apiVersion: elasticsearch.k8s.elastic.co/v1alpha1
@@ -139,6 +144,7 @@ spec:
     node.ingest: true
 					</code>
 				</pre>
+				<p><a href="https://www.elastic.co/guide/en/cloud-on-k8s/0.8/k8s-quickstart.html">Elasticsearch Operator Lab</a> </p>
 			</section>
 			<section>
 				<h3>Finding operators</h3>

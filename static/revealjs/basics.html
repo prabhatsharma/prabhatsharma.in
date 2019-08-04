@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Kubernetes - Basics - Prabhat Sharma</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/white.css">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        Kubernetes - Basics
+        <br><br><br>
+        Prabhat Sharma
+        <br><br><br>
+        <i class="fab fa-twitter" style="color: lightskyblue"></i> <a href="https://twitter.com/hiprabhat">@hiprabhat</a> <br>
+        <i class="fab fa-github"> </i><a href="https://github.com/prabhatsharma">@prabhatsharma</a>
+
+      </section>
+      <section>
+          <section>
+              <h3>Pod</h3>
+              <img src="./images/k8s-basics/pod-1.png">
+            </section>
+            <section>
+              <h3>pod.yaml - Definition</h3>	
+              <pre>
+                <code>
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app1
+  labels:
+    name: app1
+spec:
+  containers:
+  - name: app1
+    image: hiprabhat/ecommerce-person:v1
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+      ports:
+      - containerPort: 8080
+                </code>
+              </pre>
+              <p>$ kubectl apply -f pod.yaml</p>
+            </section>
+            <section>
+              <h3>Multicontainer pod</h3>
+              <img src="./images/k8s-basics/pod-2.png">
+            </section>
+            <section>
+              <h3>multicontainer-pod.yaml - Definition</h3>	
+              <pre>
+                <code>
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app1
+  labels:
+    name: app1
+spec:
+  containers:
+  - name: app1
+    image: hiprabhat/ecommerce-person:v1
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+        ports:
+        - containerPort: 8080
+  - name: product
+    image: hiprabhat/product:v1
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+      ports:
+      - containerPort: 8081
+                </code>
+              </pre>
+              <p>$ kubectl apply -f multicontainer-pod.yaml</p>
+            </section>
+            <section>
+              <h3>Inter pod communication</h3>
+              <img src="./images/k8s-basics/pod-3.png">
+            </section>
+
+      </section>
+      <section>
+          <section>
+              <h3>Replicaset</h3>
+              <img src="./images/k8s-basics/replicaset.png">
+      
+            </section>
+            <section>
+                <h3>replicaset.yaml - Definition</h3>
+                <pre>
+                    <code>
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: app1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: person
+  template:
+    metadata:
+      labels:
+        app: person
+    spec:
+      containers:
+      - name: person
+        image: hiprabhat/ecommerce-person:v1
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+                    </code>
+                  </pre>
+                  <p>$ kubectl apply -f replicaset.yaml</p>
+            </section>
+
+      </section>
+      
+
+      <section>
+          <section>
+            <h3>Deployment</h3>
+            <img src="./images/k8s-basics/deployment-1.png" height="500px">
+          </section>
+          <section>
+            <h3>deployment.yaml Definition</h3>
+              <pre>
+                  <code>
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: person
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: person
+  template:
+    metadata:
+      labels:
+        app: person
+    spec:
+      containers:
+      - name: person
+        image: hiprabhat/ecommerce-person:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+                  </code>
+                </pre>
+                <p>$ kubectl apply -f deployment.yaml</p>
+          </section>
+          <section>
+            <h3>Deployment - Update</h3>
+            <img src="./images/k8s-basics/deployment-2.png" height="500px">
+          </section>
+          <section>
+            <h3>Deployment - Update</h3>
+            <img src="./images/k8s-basics/deployment-3.png" height="500px">
+          </section>
+          <section>
+            <h3>Deployment - Update</h3>
+            <img src="./images/k8s-basics/deployment-4.png" height="500px">
+          </section>
+          <section>
+            <h3>Deployment - Update</h3>
+            <img src="./images/k8s-basics/deployment-5.png" height="500px">
+          </section>
+      </section>
+      <section>
+          <section>
+              <h3>Service</h3>
+              <img src="./images/k8s-basics/service-1.png" height="500px">
+            </section>
+            <section>
+                <h3>service.yaml Definition</h3>
+                  <pre>
+                      <code>
+apiVersion: v1
+kind: Service
+metadata:
+  name: person
+spec:
+  selector:
+    app: person
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 80
+                      </code>
+                    </pre>
+                    <p>$ kubectl apply -f service.yaml</p>
+              </section>
+            <section>
+              <h3>Service - NodePort</h3>
+              <img src="./images/k8s-basics/service-2.png" height="500px">
+            </section>
+            <section>
+              <h3>Service - LoadBalancer</h3>
+              <img src="./images/k8s-basics/service-3.png" height="500px">
+            </section>
+
+      </section>
+      <section>
+        <h1>Thank You</h1>
+        <h2>Questions?</h2>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true }
+      ]
+    });
+  </script>
+</body>
+
+</html>
