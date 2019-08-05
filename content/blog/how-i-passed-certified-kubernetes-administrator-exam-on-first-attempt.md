@@ -116,7 +116,3 @@ $ k run
 This will show the help. Help will have several examples of creating a pod, deployment, job, scheduled job etc which you could simply copy. Be familiar with the options by practicing them.
 
 I also joined CKA channel for kubernauts where aspirants hangout and are facilitated by good guys from kubernauts. You might want to join this [channel](https://kubernauts.slack.com)
-
-# Comments
-<div id="commento"></div>
-<script src="https://cdn.commento.io/js/commento.js"></script>

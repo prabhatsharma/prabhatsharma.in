@@ -14,9 +14,17 @@ theme = "prabhat-simple"
         url     = "/gallery"
         weight  = 2
     [[menu.nav]]
+        name    = "Kubernetes"
+        url     = "/tags/kubernetes"
+        weight  = 3
+    [[menu.nav]]
+        name    = "AWS"
+        url     = "/tags/aws"
+        weight  = 3
+    [[menu.nav]]
         name    = "Blog"
         url     = "/blog"
-        weight  = 3
+        weight  = 4
 
 # Site Params
 [params]

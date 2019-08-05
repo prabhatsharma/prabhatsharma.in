@@ -197,7 +197,4 @@ This will create the ~/.kube/config file.
 
 Now the user is all set to use kubectl with the cluster.
 
-# Comments
 
-<div id="commento"></div>
-<script src="https://cdn.commento.io/js/commento.js"></script>

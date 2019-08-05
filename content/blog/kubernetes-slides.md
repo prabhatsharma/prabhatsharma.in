@@ -2,6 +2,7 @@
 title: "Kubernetes Slides"
 date: 2019-07-14T23:06:23-07:00
 draft: false
+image: images/blog/kubernetes-big.png
 tags: ["k8s", "kubernetes", "stateful"]
 author: Prabhat Sharma
 type: post

@@ -2,6 +2,7 @@
 title: "RED Monitoring With Istio and Prometheus"
 date: 2019-07-21T22:50:19-07:00
 draft: false
+image: images/blog/prometheus.png
 tags: ["k8s", "kubernetes", "monitoring", "Prometheus", "Istio"]
 author: Prabhat Sharma
 type: post
@@ -53,7 +54,4 @@ avg(rate(istio_request_duration_seconds_sum{source_workload_namespace="ecommerce
 {{< / highlight >}}
 
 
-# Comments
-<div id="commento"></div>
-<script src="https://cdn.commento.io/js/commento.js"></script>
 

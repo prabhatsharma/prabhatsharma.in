@@ -326,7 +326,3 @@ Adam can run many more commands in any namespace with success.
 Now the above steps are a bit too much just to add/delete users. I built an utility tool to make it easy to manage EKS users. It's called eksuser. Head over to [eksuser-amazon-eks-user-management-tool](../eksuser-amazon-eks-user-management-tool) to find out, how it works.
 
 
-# Comments
-<div id="commento"></div>
-<script src="https://cdn.commento.io/js/commento.js"></script>
-

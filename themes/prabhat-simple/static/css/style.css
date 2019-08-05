@@ -40,6 +40,13 @@ a:hover {
   text-decoration: none;
 }
 
+.single-recent-post {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: 0 15px 20px rgba(114, 116, 114, 0.808); 
+}
+
 .section-heading {
   text-align: center;
   margin-bottom: 65px;

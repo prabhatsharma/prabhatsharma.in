@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: person
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: person
+  template:
+    metadata:
+      labels:
+        app: person
+    spec:
+      containers:
+      - name: person
+        image: hiprabhat/ecommerce-person:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080

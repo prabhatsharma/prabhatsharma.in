@@ -1,0 +1,19 @@
+<div>
+    <!-- <br> -->
+    <h1>Recent posts</h1> 
+    <div class="row">
+        {{ range first 30 .Site.Pages }}
+            {{if eq .Section "blog"}}
+            <div class="col-xs-12 col-sm-6 col-md-2 col-lg-4">
+                <div class="single-recent-post" >
+                    <a href="{{ .Permalink }}">
+                         {{ with .Params.image }}<img width="300px" src="{{ . | absURL }}"/>{{ end }}
+                    </a><br>
+                    <a href="{{.Permalink}}"> {{.Title}}</a>
+                </div>
+            </div>
+
+            {{end}}
+        {{ end }}
+    </div>
+</div>

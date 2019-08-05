@@ -73,6 +73,3 @@ You are all setup.
 A word of caution. Do not expose kibana dashboard service yet using a service type of Loadbalancer or Ingress as it will open it to the world without any authentication. We will look at how to add authentication to kubernetes services in a future post.
 </p>
 
-# Comments
-<div id="commento"></div>
-<script src="https://cdn.commento.io/js/commento.js"></script>

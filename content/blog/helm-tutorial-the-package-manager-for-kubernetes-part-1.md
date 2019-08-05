@@ -222,7 +222,3 @@ $ helm list --help
 {{< / highlight >}}
 
 Thats all for this post. 
-
-# Comments
-<div id="commento"></div>
-<script src="https://cdn.commento.io/js/commento.js"></script>

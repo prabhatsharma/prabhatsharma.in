@@ -128,6 +128,3 @@ We have successfully accessed our kubernetes ClusterIP service from our laptop.
 
 You could access any service in your kubernetes cluster using this mechanism during your development from your laptop where your code needs to access those services.
 
-# Comments
-<div id="commento"></div>
-<script src="https://cdn.commento.io/js/commento.js"></script>

@@ -55,7 +55,3 @@ rw  2048   512   512          0  10737418240000   /dev/nvme10n1</td>
 
 
 
-# Comments
-
-<div id="commento"></div>
-<script src="https://cdn.commento.io/js/commento.js"></script>

@@ -278,6 +278,4 @@ You can setup an ingress in front of your airflow-web service to make it accessi
 
 Congratulations You are up and running with airflow!!!
 
-# Comments
-<div id="commento"></div>
-<script src="https://cdn.commento.io/js/commento.js"></script>
+You might also want to read the new blog on [Installing Airflow on Kubernetes Using Operator](../installing-airflow-on-kubernetes-using-operator)
