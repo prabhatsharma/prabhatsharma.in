@@ -21,7 +21,7 @@ So, let's look at how to set up "logging in kubernetes the easy way".
 
 ## fluent-bit
 
-Before we start setting up our infrastructure, I chose this instead of using fluend directly was the fact that it enriches the metadata of logs by querying API server. It adds following to the logs:
+Before we start setting up our infrastructure, I chose this instead of using fluentd directly was the fact that it enriches the metadata of logs by querying API server. It adds following to the logs:
 
 1. POD Name
 1. POD ID
@@ -34,7 +34,7 @@ That is pretty neat to get out of the box.
 
 ## Installation
 
-Below are the steps to have a basic installation that will get you up an running in 5 minutes. For production use you might want to modify various parameters of the helm charts (e.g. size of elasticsearch persistent volume claim. Default is 30 GB).
+Below are the steps to setup a basic installation that will get you up an running in 5 minutes. For production use you might want to modify various parameters of the helm charts (e.g. size of elasticsearch persistent volume claim. Default is 30 GB).
 
 
 Create a namespace logs and install elasticsearch

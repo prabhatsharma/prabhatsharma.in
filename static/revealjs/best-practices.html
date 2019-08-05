@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Kubernetes - Basics - Prabhat Sharma</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/white.css">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        Kubernetes - Best practices
+        <br><br><br>
+        Prabhat Sharma
+        <br><br><br>
+        <i class="fab fa-twitter" style="color: lightskyblue"></i> <a href="https://twitter.com/hiprabhat">@hiprabhat</a> <br>
+        <i class="fab fa-github"></i> <a href="https://github.com/prabhatsharma">@prabhatsharma</a>
+      </section>
+      <section>
+        <h3>Containers</h3>
+        <ul>
+          <li>Use small containers for production. Possibly alpine based that do not contain extra items.</li>
+          <li>Avoid building your containers based on distros like ubuntu</li>
+          <li>If possible, use multi-stage docker files.</li>
+          <li>Run a single process per container.</li>
+          <li>Optimize for docker build cache. Create images with common layers.</li>
+          <li>Be careful in using public images. Scan images for vulnerabilities using tools like twistlock, Anchore, etc...</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Kubernetes</h3>
+        <ol>
+          <li>Do not create naked pods. Always use ReplicaSets or Deployments(or StatefulSets)</li>
+          <li>Always specify resource limits for pods.</li>
+          <li>use namespaces to organize your applications.</li>
+          <li>Store your YAML definition files in version control.</li>
+          <li>Do not use latest tag in your deployment files.</li>
+          <li>Follow 12 factor app principles.</li>
+          <li>Sepcify non-root user for running containers in pods</li>
+        </ol>
+      </section>
+      
+      <section>
+        <h1>Thank You</h1>
+        <h2>Questions?</h2>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true }
+      ]
+    });
+  </script>
+</body>
+
+</html>
