@@ -8,6 +8,10 @@ type: post
 image: images/blog/k8s-logging.png
 ---
 
+<i style="color:red;font-size:25px">
+Note: This blog is deprecated. Please follow the [new blog that uses operators](../installing-elasticsearch-on-kubernetes-using-operator-and-setting-it-for-kubernetes-logging)
+</i>
+
 In my conversations with various development teams I regularly come across this common question of how to do logging on kubernetes.
 
 While there are existing solutions like EFK (elasticsearch, fluentd, kibana) stack, it takes good amount of effort for setting these up and making them work. I was wondering if I can provide some easy steps to people who just want to get started with logging in not so cumbersome and tedious way. 
@@ -46,13 +50,15 @@ $ helm install stable/elasticsearch --name=elasticsearch --namespace=logs
 Install fluent-bit and pass the elasticsearch service endpoint to it during installation. This chart will install a daemonset that will start a fluent-bit pod on each node. This is the workhorse of log collection. It will pick the logs from the host node and push it to elasticsearch.
 
 {{< highlight shell>}}
-$ helm install stable/fluent-bit --name=fluent-bit --namespace=logs --set backend.type=es --set backend.es.host=elasticsearch-client
+$ helm install stable/fluent-bit --name=fluent-bit --namespace=logs --set backend.type=es --set backend.es.host=elasticsearch-client 
+.
 {{< / highlight >}}
 
 At this point you will have logs collecting in elasticsearch. Now you will want to search logs. This is where you install kibana.
 
 {{< highlight shell>}}
-$ helm install stable/kibana --name=kibana --namespace=logs --set env.ELASTICSEARCH_URL=http://elasticsearch-client:9200
+$ helm install stable/kibana --name=kibana --namespace=logs --set env.ELASTICSEARCH_HOSTS=http://elasticsearch-client:9200 
+.
 {{< / highlight >}}
 
 Now you have everything setup. 
