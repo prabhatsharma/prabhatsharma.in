@@ -47,6 +47,13 @@ a:hover {
   box-shadow: 0 5px 5px rgba(114, 116, 114, 0.808); 
 }
 
+.subscribe {
+  padding: 5px;
+  margin: 5px;
+  border: 10px solid lightseagreen;
+  border-radius: 5px;
+}
+
 .section-heading {
   text-align: center;
   margin-bottom: 65px;
