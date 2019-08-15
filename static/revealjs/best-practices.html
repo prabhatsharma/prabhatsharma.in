@@ -44,25 +44,46 @@
         <ul>
           <li>Use small containers for production. Possibly alpine based that do not contain extra items.</li>
           <li>Avoid building your containers based on distros like ubuntu</li>
-          <li>If possible, use multi-stage docker files.</li>
+          <li>If possible, use <a href="https://github.com/prabhatsharma/ecommerce-microservices/blob/master/person/Dockerfile">multi-stage docker files</a>.</li>
           <li>Run a single process per container.</li>
           <li>Optimize for docker build cache. Create images with common layers.</li>
-          <li>Be careful in using public images. Scan images for vulnerabilities using tools like twistlock, Anchore, etc...</li>
+          <li>Be careful in using public images. Scan images for vulnerabilities using tools like <a href="https://github.com/coreos/clair" >Clair</a>, Anchore, etc...</li>
         </ul>
       </section>
       <section>
         <h3>Kubernetes</h3>
         <ol>
           <li>Do not create naked pods. Always use ReplicaSets or Deployments(or StatefulSets)</li>
-          <li>Always specify resource limits for pods.</li>
+          <li>Always specify <a href="https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/">resource limits</a> for containers in pods.</li>
           <li>use namespaces to organize your applications.</li>
           <li>Store your YAML definition files in version control.</li>
           <li>Do not use latest tag in your deployment files.</li>
-          <li>Follow 12 factor app principles.</li>
-          <li>Sepcify non-root user for running containers in pods</li>
+          <li>Follow <a href="https://12factor.net/">12 factor app</a> principles.</li>
+          <li>Sepcify <a href="https://github.com/prabhatsharma/ecommerce-microservices/blob/master/person/Dockerfile">non-root user</a> for running containers in pods</li>
         </ol>
       </section>
-      
+      <section>
+        <h3>Building APIs</h3>
+        <ul>
+          <li>Keep your base URL simple and intuitive</li>
+          <li>Nouns are good; verbs are bad. Keep verbs out of your base URLs</li>
+          <li>Version your APIs. <a>https://api.site.com/v1/products</a></li>  
+          <li>Use HTTP verbs to operate on the collections and elements (GET, POST, PUT, DELETE)</li>
+          <li>Error handling: Use HTTP status codes, provide easy to read messages. </li>      
+        </ul>
+
+        <i style="font-size: 20px;">References: <a href="https://pages.apigee.com/rs/apigee/images/api-design-ebook-2012-03.pdf" >Web API Design: Crafting Interfaces that Developers Love</a></i>
+      </section>
+      <section>
+          <h3>HTTP status codes - Cheat sheet</h3>
+          <div style="text-align: left; ">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Information_responses">1xx</a> - Hold on<br>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Successful_responses">2xx</a> - Here you go<br>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Redirection_messages">3xx</a> - Go away<br>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Client_error_responses">4xx</a> - You f****d up<br>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Server_error_responses">5xx</a> - I f****d up<br>
+          </div>
+      </section>      
       <section>
         <h1>Thank You</h1>
         <h2>Questions?</h2>
