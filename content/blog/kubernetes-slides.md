@@ -10,7 +10,8 @@ type: post
 
 Created some slides for running stateful applications on kubernetes.
 
-1. [Basics - Pod, Replicaset, Deployment, Service](../../revealjs/basics.html)
+1. [Why containers](../../revealjs/why-containers.html)
+1. [Basics of Kubernetes- Pod, Replicaset, Deployment, Service](../../revealjs/basics.html)
 1. [Stateful Sets](../../revealjs/statefulsets.html)
 1. [Storage](../../revealjs/storage.html)
 1. [High availability](../../revealjs/high-availability.html)

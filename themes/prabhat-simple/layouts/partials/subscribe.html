@@ -2,7 +2,7 @@
     <br>
 
     <div class="subscribe">
-        <h4>Subscribe for new articles.</h4><br>
+        <h4>Subscribe to get latest articles right into your inbox</h4><br>
         Your name: <input id="username"></input>
         Email: <input id="email"></input>
         <!-- <button type="button" class="btn btn-success" onClick="requestSubscription()" data-toggle="modal" data-target="#subscriptionModal">Subscribe</button> -->
@@ -26,7 +26,8 @@
                     }
                 });
                 const myJson = await response.json(); //extract JSON from the http response// do something with myJson
-                const responseStatus = response.status;
+                const responseStatus = response.status;            
+                // if subscription call issuccessful then display the modal and clear fields
                 if (responseStatus === 200) {
                     $("#subscriptionModal").modal();
                     document.getElementById("email").value = "";
