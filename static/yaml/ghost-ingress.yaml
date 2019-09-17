@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: ghost
+  namespace: ghost
+spec:
+  rules:
+    - host: ghost.prabhatsharma.com
+      http:
+        paths:
+          - backend:
+              serviceName: ghost
+              servicePort: 80
+            path: /

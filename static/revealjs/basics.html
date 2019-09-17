@@ -40,7 +40,7 @@
         <i class="fab fa-github"> </i><a href="https://github.com/prabhatsharma">@prabhatsharma</a>
 
       </section>
-      <section>
+
           <section>
               <h3>Pod</h3>
               <img src="./images/k8s-basics/pod-1.png">
@@ -54,7 +54,7 @@ kind: Pod
 metadata:
   name: app1
   labels:
-    name: app1
+    app: person
 spec:
   containers:
   - name: app1
@@ -82,7 +82,7 @@ kind: Pod
 metadata:
   name: app1
   labels:
-    name: app1
+    app: person
 spec:
   containers:
   - name: app1
@@ -110,8 +110,8 @@ spec:
               <img src="./images/k8s-basics/pod-3.png">
             </section>
 
-      </section>
-      <section>
+
+    
           <section>
               <h3>Replicaset</h3>
               <img src="./images/k8s-basics/replicaset.png">
@@ -150,10 +150,10 @@ spec:
                   <p>$ kubectl apply -f replicaset.yaml</p>
             </section>
 
-      </section>
+
       
 
-      <section>
+
           <section>
             <h3>Deployment</h3>
             <img src="./images/k8s-basics/deployment-1.png" height="500px">
@@ -205,8 +205,8 @@ spec:
             <h3>Deployment - Update</h3>
             <img src="./images/k8s-basics/deployment-5.png" height="500px">
           </section>
-      </section>
-      <section>
+ 
+
           <section>
               <h3>Service</h3>
               <img src="./images/k8s-basics/service-1.png" height="500px">
@@ -239,7 +239,7 @@ spec:
               <img src="./images/k8s-basics/service-3.png" height="500px">
             </section>
 
-      </section>
+   
       <section>
         <h1>Thank You</h1>
         <h2>Questions?</h2>
