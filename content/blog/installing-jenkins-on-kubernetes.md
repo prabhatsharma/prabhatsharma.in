@@ -69,7 +69,7 @@ kubectl -n jenkins port-forward svc/jenkins 8080:8080
 {{</ highlight>}}
 
 Now you can head on to the http://localhost:8080 to access Jenkins
-<img src="/images/blog/jenkins-login-page.png" width="800px">
+<img src="/images/blog/jenkins-login-page.png" width="80%">
 
 In order for Jenkins to be accessible over the internet/intranet you can expose it using an ingress.
 

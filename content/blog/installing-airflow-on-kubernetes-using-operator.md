@@ -102,7 +102,7 @@ kubectl port-forward mc-cluster-airflowui-0 8080:8080
 ![AIRFLOW DAG PAGE](/images/blog/airflow-using-operator.png =250x100)
 airflow-using-operator.png
 
-<img src="/images/blog/airflow-using-operator.png" width="1024">
+<img src="/images/blog/airflow-using-operator.png" width="100%">
 
 
 In order to setup authentication, follow the steps in the <a href="../installing-aiflow-on-kubernetes">earlier blog</a>

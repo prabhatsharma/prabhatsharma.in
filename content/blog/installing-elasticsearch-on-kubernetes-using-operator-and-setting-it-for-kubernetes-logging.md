@@ -143,7 +143,7 @@ Now go to https://localhost:5601  and login using below credentials<br>
 User ID: elastic <br>
 Password: Output of command ($ kubectl get secret quickstart-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
 
-<img src="/images/blog/kibana-using-operator.png" width="800px">
+<img src="/images/blog/kibana-using-operator.png" width="80%">
 
 # Step 4 - Install fluent-bit
 
