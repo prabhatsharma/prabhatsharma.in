@@ -1,7 +1,7 @@
 ---
 title: "Build Docker images without Docker using Img and Jenkins on Kubernetes"
 date: 2019-08-12T11:40:36-07:00
-draft: true
+draft: false
 tags: ["kubernetes", "CICD", "Jenkins"]
 author: Prabhat Sharma
 type: post

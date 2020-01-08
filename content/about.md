@@ -3,6 +3,8 @@ title: "About"
 date: 2019-07-07T08:39:51-07:00
 draft: true
 tags: ["blog"]
+author: Prabhat Sharma
+type: post
 ---
 
 <section id="about">
