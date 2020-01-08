@@ -18,7 +18,11 @@ Before you can begin you will need an RSS feedreader that can notify you wheneve
 
 I am on Mac and the RSS feedreader I use is [**Luck News**](https://apps.apple.com/us/app/lucknews/id590365026?mt=12)
 
-The most important RSS feeds from AWS are:
+<img src="/images/blog/lucknews.png" width="100%">
+
+You can simply copy the feed URL and use it in your feed reader to get notified of anything new from AWS.
+
+The most important RSS feeds from AWS for most people, probably are:
 
 <div class="container">
 <table class="table table-striped table-hover table-sm table-responsive">
@@ -39,6 +43,11 @@ The most important RSS feeds from AWS are:
             <td>2.</td>
             <td><a href='https://aws.amazon.com/about-aws/whats-new/recent/'>AWS News Blog</a></td>
             <td><a href='https://aws.amazon.com/blogs/aws/feed/'>https://aws.amazon.com/blogs/aws/feed/</a> </td>
+        </tr>
+        <tr>
+            <td>3.</td>
+            <td><a href='https://aws.amazon.com/security/security-bulletins/'>AWS Security Bulletins</a></td>
+            <td><a href='https://aws.amazon.com/security/security-bulletins/feed/'>https://aws.amazon.com/security/security-bulletins/feed/</a> </td>
         </tr>
     </tbody>
 </table>
