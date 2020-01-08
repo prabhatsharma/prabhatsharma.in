@@ -10,7 +10,9 @@ image: images/blog/aws_logo.png
 
 With AWS releasing myriad of services and features every week how do you even get to know what got released and what is relevant to you. On top of the new services/features getting released there are a lot of blogs that get released by AWS solution architects and engineers that provide useful instructions to achieve specific use cases.
 
-I will point you to specific RSS feeds that you can use to staty updated.
+Imagine being able to get all the relevant details in your inbox automatically and is separate from your email that allows you to focus.
+
+Welcome to RSS feeds from AWS. I will point you to specific RSS feeds that you can use to staty updated.
 
 Before you can begin you will need an RSS feedreader that can notify you whenever anything new becomes available from AWS. Officially not all RSS feeds seem to be publicized from AWS but you can always get the feeds by hitting the URLs directly. I will share the links below that you can use.
 
@@ -18,8 +20,9 @@ I am on Mac and the RSS feedreader I use is [**Luck News**](https://apps.apple.c
 
 The most important RSS feeds from AWS are:
 
-<table class="table table-striped">
-    <thead>
+<div class="container">
+<table class="table table-striped table-hover table-sm table-responsive">
+    <thead class="thead-dark">
         <tr>
             <th>#</th>
             <th>Feed</th>
@@ -39,11 +42,12 @@ The most important RSS feeds from AWS are:
         </tr>
     </tbody>
 </table>
+</div>
 
 You also have blogs specific to domains that you might be interested in:
-
-<table class="table table-striped">
-    <thead>
+<div class="container">
+<table class="table table-striped table-hover table-sm table-responsive">
+    <thead class="thead-dark">
         <tr>
             <th>#</th>
             <th>Feed</th>
@@ -168,4 +172,5 @@ You also have blogs specific to domains that you might be interested in:
         </tr>
     </tbody>
 </table>
+</div>
 
