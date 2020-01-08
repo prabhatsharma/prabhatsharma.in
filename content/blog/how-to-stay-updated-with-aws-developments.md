@@ -1,7 +1,7 @@
 ---
 title: "How to stay updated With AWS developments"
 date: 2020-01-07T20:44:23-08:00
-draft: true
+draft: false
 author: Prabhat Sharma
 tags: ['aws']
 type: post
