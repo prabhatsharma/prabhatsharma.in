@@ -33,23 +33,66 @@ To achieve the above goal we will do following:
 
 To make our life easier we will use helm. (You can look at [this article](/blog/helm-tutorial-the-package-manager-for-kubernetes-part-1/) on how to install helm if you don't already have it installed). Let's search for a helm chart for openvpn:
 
+### Installation steps for helm v3
+
+Search for the chart
+
 {{< highlight shell>}}
-$ helm search openvpn
+$ helm search hub openvpn
 {{< / highlight >}}
 
-output:
+Output:
 {{< highlight shell>}}
-NAME          	CHART VERSION	APP VERSION	DESCRIPTION
-stable/openvpn	3.9.1        	1.1.0      	A Helm chart to install an openvpn server inside a kubern...
+URL                                          	CHART VERSION	APP VERSION	DESCRIPTION
+https://hub.helm.sh/charts/stable/openvpn    	4.2.0        	1.1.0      	A Helm chart to install an openvpn server insid...
+https://hub.helm.sh/charts/cloudposse/openvpn	0.1.1        	           	A Helm chart for OpenVPN
 {{< / highlight >}}
 
-Now let's install openvpn:
+You can get the documentation for helm chart at https://hub.helm.sh/charts/stable/openvpn/4.2.0
+
+Now that we have the chart that we want to install, let's create a namespace for it and get the kubernetes contexts.
 
 {{< highlight shell>}}
-$ helm install stable/openvpn --name=openvpn --namespace=openvpn
+kubectl create namespace openvpn
+
+kubectl config get-contexts
+{{< / highlight >}}
+
+Output:
+{{< highlight shell>}}
+CURRENT   NAME                                                  CLUSTER                                               AUTHINFO                                              NAMESPACE
+          arn:aws:eks:us-west-2:123456789862:cluster/oregon14   arn:aws:eks:us-west-2:123456789862:cluster/oregon14   arn:aws:eks:us-west-2:123456789862:cluster/oregon14   default
+*         prabhat@basic3.us-west-2.eksctl.io                    basic3.us-west-2.eksctl.io                            prabhat@basic3.us-west-2.eksctl.io                    default
+          prabhat@f1.us-east-2.eksctl.io                        f1.us-east-2.eksctl.io                                prabhat@f1.us-east-2.eksctl.io
+          prabhat@ireland14.eu-west-1.eksctl.io                 ireland14.eu-west-1.eksctl.io                         prabhat@ireland14.eu-west-1.eksctl.io
+{{< / highlight >}}
+
+Now let's change the current namespace to the one that we created for openvpn installation.
+
+{{< highlight shell>}}
+kubectl config set-context prabhat@basic3.us-west-2.eksctl.io --namespace=openvpn
+
+kubectl config get-contexts
+{{< / highlight >}}
+
+Output:
+{{< highlight shell>}}
+CURRENT   NAME                                                  CLUSTER                                               AUTHINFO                                              NAMESPACE
+          arn:aws:eks:us-west-2:123456789862:cluster/oregon14   arn:aws:eks:us-west-2:123456789862:cluster/oregon14   arn:aws:eks:us-west-2:123456789862:cluster/oregon14   default
+*         prabhat@basic3.us-west-2.eksctl.io                    basic3.us-west-2.eksctl.io                            prabhat@basic3.us-west-2.eksctl.io                    openvpn
+          prabhat@f1.us-east-2.eksctl.io                        f1.us-east-2.eksctl.io                                prabhat@f1.us-east-2.eksctl.io
+          prabhat@ireland14.eu-west-1.eksctl.io                 ireland14.eu-west-1.eksctl.io                         prabhat@ireland14.eu-west-1.eksctl.io
 {{< / highlight >}}
 
 This will deploy openvpn and will give you the steps that you need to follow to create an OpenVPN configuration file.
+
+Finally let's install openvpn
+
+{{< highlight shell>}}
+helm install openvpn stable/openvpn --version 4.2.0
+{{< / highlight >}}
+
+### installlation verification
 
 Now let's check if our service is up and running:
 
@@ -66,14 +109,39 @@ openvpn   LoadBalancer   10.100.166.191   a22678678768456464656816........-12345
 
 Now let's follow the steps provided by the helm chart:
 
+Now let's create a file  with following contents using editor of your choice:
+
+create-key.sh
 {{< highlight shell>}}
-$ POD_NAME=$(kubectl get pods --namespace "openvpn" -l "app=openvpn,release=openvpn" -o jsonpath='{ .items[0].metadata.name }')
-$ SERVICE_NAME=$(kubectl get svc --namespace "openvpn" -l "app=openvpn,release=openvpn" -o jsonpath='{ .items[0].metadata.name }')
-$ SERVICE_IP=$(kubectl get svc --namespace "openvpn" "$SERVICE_NAME" -o go-template='{{ range $k, $v := (index .status.loadBalancer.ingress 0)}}{{ $v }}{{end}}')
-$ KEY_NAME=kubeVPN
-$ kubectl --namespace "openvpn" exec -it "$POD_NAME" /etc/openvpn/setup/newClientCert.sh "$KEY_NAME" "$SERVICE_IP"
-$ kubectl --namespace "openvpn" exec -it "$POD_NAME" cat "/etc/openvpn/certs/pki/$KEY_NAME.ovpn" > "$KEY_NAME.ovpn"
+#!/bin/bash
+
+if [ $# -ne 3 ]
+then
+  echo "Usage: $0 <CLIENT_KEY_NAME> <NAMESPACE> <HELM_RELEASE>"
+  exit
+fi
+
+KEY_NAME=$1
+NAMESPACE=$2
+HELM_RELEASE=$3
+POD_NAME=$(kubectl get pods -n "$NAMESPACE" -l "app=openvpn,release=$HELM_RELEASE" -o jsonpath='{.items[0].metadata.name}')
+SERVICE_NAME=$(kubectl get svc -n "$NAMESPACE" -l "app=openvpn,release=$HELM_RELEASE" -o jsonpath='{.items[0].metadata.name}')
+SERVICE_IP=$(kubectl get svc -n "$NAMESPACE" "$SERVICE_NAME" -o go-template='{{range $k, $v := (index .status.loadBalancer.ingress 0)}}{{$v}}{{end}}')
+kubectl -n "$NAMESPACE" exec -it "$POD_NAME" /etc/openvpn/setup/newClientCert.sh "$KEY_NAME" "$SERVICE_IP"
+kubectl -n "$NAMESPACE" exec -it "$POD_NAME" cat "/etc/openvpn/certs/pki/$KEY_NAME.ovpn" > "$KEY_NAME.ovpn"
 {{< / highlight >}}
+
+Now mark the file as executable
+
+{{< highlight shell>}}
+chmod +x create-key.sh
+{{< / highlight >}}
+
+Now create a key
+{{< highlight shell>}}
+./create-key.sh kubeVPN openvpn openvpn
+{{< / highlight >}}
+
 This will give you a file kubeVPN.ovpn in your current folder.
 
 ## Step 2 - Install OpenVPN client on your laptop
