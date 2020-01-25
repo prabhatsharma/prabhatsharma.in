@@ -84,10 +84,7 @@ CURRENT   NAME                                                  CLUSTER         
           prabhat@ireland14.eu-west-1.eksctl.io                 ireland14.eu-west-1.eksctl.io                         prabhat@ireland14.eu-west-1.eksctl.io
 {{< / highlight >}}
 
-This will deploy openvpn and will give you the steps that you need to follow to create an OpenVPN configuration file.
-
 Finally let's install openvpn
-
 {{< highlight shell>}}
 helm install openvpn stable/openvpn --version 4.2.0
 {{< / highlight >}}
