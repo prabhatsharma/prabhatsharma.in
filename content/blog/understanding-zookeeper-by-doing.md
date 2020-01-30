@@ -8,13 +8,13 @@ type: post
 image: images/blog/zookeeper.jpg
 ---
 
-Software ecosystem of distrubuted systems is vast and each of the pieces doa  specific task. Many a times you will find many systems that provide similar functionality.
+Software ecosystem of distrubuted systems is vast and each of the pieces do a specific task. Many a times you will find many systems that provide similar functionality.
 
-Let's take a look at the problem of distributed coordination today and one of the most popular systems to help solve it is zookeeper. Part of the hadoop ecosystem, zookeeper is very popular. Let's understand what it is and how it works.
+Let's take a look at the problem of distributed coordination today, and one of the most popular systems to help solve it is zookeeper. Part of the hadoop ecosystem, zookeeper is very popular. Let's understand what it is and how it works.
 
 At its core zookeeper is kind of a file system that has nodes and nodes store data. You can watch the changes to the nodes and take appropriate actions. Generally you would use zooker when you are building a distributed system that has multiple nodes and they need to coordinate with each other.
 
-First thing we need to do is to install zookeeper. You can follow the official guide at https://zookeeper.apache.org/doc/r3.5.5/zookeeperStarted.html.
+First thing we need to do is to install zookeeper. You can follow the official guide at https://zookeeper.apache.org/doc/r3.5.5/zookeeperStarted.html or you can follow the below steps to install zookeeper on your kubernetes cluster.
 
 When trying out new stuff I like to use kubernetes as its easy to install prepackaged software using helm charts or operators. I have an EKS cluster running on AWS. If you would like to use kubernetes and want to spin up an EKS cluster you can create on using the command
 
@@ -26,6 +26,8 @@ Head on to https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html to know 
 
 
 I will install zookeeper using [helm](https://helm.sh/) 3.
+
+search for zookeeper in helm repository using 
 
 {{< highlight shell>}}
 helm search repo zookeeper
