@@ -1,7 +1,7 @@
 ---
 title: "Amazon EKS IAM authentication: How to add an IAM user"
 date: 2018-10-26T08:26:08-07:00
-image: images/blog/eks.svg
+image: images/blog/eks-iam-authentication/eks.svg
 draft: false
 tags: ["eks", "kubernetes", "aws", "authentication", "iam"]
 author: Prabhat Sharma
@@ -15,13 +15,13 @@ EKS uses IAM for authentication. It uses [aws-iam-authenticator](https://github.
 
 The flow looks like:
 
-![EKS Auth Flow](/images/blog/eks-auth.png)
+<img src="/images/blog/eks-iam-authentication/eks-auth.png" width="100%"> 
 
 In this post we will learn how to add an IAM user to EKS for him/her to access kubernetes resources. 
 
 Let's say there are 3 people:
 
-![EKS Users](/images/blog/eks-users.png)
+<img src="/images/blog/eks-iam-authentication/eks-users.png" width="50%"> 
 
 1. Prabhat - created the cluster. Hence has admin privileges on the cluster.
 1. Adam - the cluster admin that prabhat will add to EKS

@@ -65,11 +65,11 @@ Once you are logged in to Jenkins it's time to create a new Jenkins pipeline. Fo
 
 
 
-<img src="/images/blog/jenkins-new-item.png" width="400px">
+<img src="/images/blog/docker-kaniko/jenkins-new-item.png" width="400px">
 
 #### 2. Create a new <b><i>Pipeline</i></b>
 
-<img src="/images/blog/jenkins-new-pipeline.png" width="800px">
+<img src="/images/blog/docker-kaniko/jenkins-new-pipeline.png" width="800px">
 
 #### 3. Place the pipeline script in the job
 
@@ -125,19 +125,19 @@ We are using an older kaniko docker image (tag debug-539ddefcae3fd6b411a95982a83
 
 <br>
 
-<img src="/images/blog/jenkins-pipeline-script.png" width="900px">
+<img src="/images/blog/docker-kaniko/jenkins-pipeline-script.png" width="900px">
 
 
 Now save the pipeline. You are all set up. Next you can click <b><i>Build Now</i></b> link to start the build.
 
-<img src="/images/blog/jenkins-build-now.png" width="900px">
+<img src="/images/blog/docker-kaniko/jenkins-build-now.png" width="900px">
 
 Once the build completes your screen should look like below 
 
-<img src="/images/blog/jenkins-build-complete.png" width="900px">
+<img src="/images/blog/docker-kaniko/jenkins-build-complete.png" width="900px">
 
 and you should have a docker image in your repository:
 
-<img src="/images/blog/ecr-image.png" width="900px">
+<img src="/images/blog/docker-kaniko/ecr-image.png" width="900px">
 
 You are all set !!!

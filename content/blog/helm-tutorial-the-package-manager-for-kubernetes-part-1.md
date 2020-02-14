@@ -4,7 +4,7 @@ date: 2018-10-13T19:36:35-07:00
 tags: ["kubernetes", "helm", "package manager"]
 author: Prabhat Sharma
 type: post
-image: images/blog/helm-logo.png
+image: images/blog/helm/helm-logo.png
 draft: false
 ---
 
@@ -41,7 +41,7 @@ You install applications using something called charts. A chart can be thought o
 
 Charts can be stored in a remote repository or they can be locally on your laptop.
 
-![Helm Architecture](/images/blog/helm-architecture.png)
+![Helm Architecture](/images/blog/helm/helm-architecture.png)
 
 Now let's get to the steps to make everything up and running.
 

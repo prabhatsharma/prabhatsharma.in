@@ -34,5 +34,5 @@ My take:
 1. Works on mac, windows and linux.
 1. It's open source (Apache license)
 
-While my needs are not extreme it and I have not tested DBeaver to its full extent, it could work for a heavy user too. Check it out. All the best.
+While my needs are not extreme and I have not tested DBeaver to its full extent, it could work for a heavy user too. Check it out. All the best.
 
