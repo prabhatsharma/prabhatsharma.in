@@ -14,4 +14,4 @@ I did this session at AWS reinvent 2019. Keeping it here for reference.
 This browser does not support PDFs. Please download the PDF to view it: Download PDF
 </iframe>
 
-
+I also did a screen recording of the practice session before reinvent, details of which can be found at - https://github.com/prabhatsharma/ecommerce-microservices/blob/master/live-debugging.md
