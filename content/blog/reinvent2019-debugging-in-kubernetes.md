@@ -1,7 +1,7 @@
 ---
 title: "Live Debugging of microservices in Kubernetes"
 date: 2020-04-08T20:43:27-07:00
-draft: true
+draft: false
 tags: ["reinvent", "AWS", "k8s", "kubernetes", "microservices"]
 author: Prabhat Sharma
 type: post
