@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Containerization and Kubernetes on AWS - Prabhat Sharma</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <!-- <link rel="stylesheet" href="shower/themes/material/styles/styles.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Containerization and Kubernetes on AWS</h1>
+        <p>Prabhat Sharma</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>Containerization and Kubernetes on AWS</h2>
+        <p>By <a href="https://prabhatsharma.in">Prabhat Sharma</a></p>
+        <p>Solutions Architect</p>
+        <figure>
+            <!-- <img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park"> -->
+            <figcaption class="copyright right white">
+                <a href="http://prabhatsharma.in">© Prabhat Sharma</a>
+            </figcaption>
+        </figure>
+        <style>
+            #cover h2 {
+                margin: 30px 0 0;
+                /* color: white; */
+                text-align: center;
+                font-size: 70px;
+            }
+
+            #cover p {
+                margin: 10px 0 0;
+                text-align: center;
+                /* color: white; */
+                font-style: italic;
+                font-size: 20px;
+            }
+
+            /* #cover p a {
+                color: white;
+            } */
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>What are microservices?</h2>
+
+        <a href="microservices.html" target="_blank" rel="noopener noreferrer">What are microservices?</a>
+
+    </section>
+
+    <section class="slide">
+        <h2>What are containers?</h2>
+        <a href="https://prabhatsharma.in/revealjs/why-containers.html" target="_">What are containers</a>
+    </section>
+
+    <section class="slide">
+        <h2>What and Why a container orchestrator?</h2>
+        <p>An orchestrator allows you to run containers in large <strong>distributed</strong>  environments at scale in <strong>fault tolerant</strong>  manner.</p>
+        <p>e.g. ECS, Kubernetes, Mesos, Docker Swarm</p>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/container-orchestrator.png" alt="container orchestrator" width="100%">
+    </section>
+
+    <section class="slide" id="landscape">
+        <h2>AWS container services landscape</h2>
+        <table class="table table-striped table-sm" >
+            <tbody>
+                <tr>
+                    <td>Registry  <sub class="sub">Container Image Repository</sub></td>
+                    <td> <img src="./pictures/ecr.png" height="25px" alt="ECR"> Amazon ECR </td>
+                </tr>
+                <tr>
+                    <td>Service Mesh <sub class="sub">Shape and monitor end-to-end application service communications</sub></td>
+                    <td> <img src="./pictures/appmesh.png" height="25px" alt="App mesh"> AWS App mesh </td>
+                </tr>
+                <tr>
+                    <td>Service discovery <sub>Discover, register, maintain health, & control access rapidly </sub></td>
+                    <td> <img src="./pictures/cloudmap.png" height="25px" alt="cloudmap"> AWS Cloudmap </td>
+                </tr>
+                <tr>
+                    <td>Orchestration <sub>Deployment, Scheduling, Scaling & Management</sub></td>
+                    <td> <img src="./pictures/ecs2.png" height="25px" alt="ECR"> Amazon ECS, <img src="./pictures/eks.png" height="25px"> Amazon EKS </td>
+                </tr>
+                <tr>
+                    <td>Compute management <sub>Where the containers run</sub></td>
+                    <td> <img src="./pictures/ec2.png" height="25px"> Amazon EC2, <img src="./pictures/fargate.png" height="25px" alt="ECR"> AWS Fargate </td>
+                </tr>
+                <tr>
+                    <td>Instance options <sub>What the containers run on</sub></td>
+                    <td> <img src="./pictures/p3.png" height="25px"> GPUs, <img src="./pictures/ec2.png" height="25px">Instances, <img src="./pictures/firecracker2.png" height="35px">Firecracker </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <style>
+            #landscape sub {
+                color: red;
+                font-size: 10px;
+                padding-bottom: -10px;
+            }
+
+            #landscape sub p {
+                color: red;
+                font-size: 10px;
+                padding-bottom: -10px;
+            }
+            
+        </style>
+
+    </section>
+
+    <section class="slide" id="learning">
+        <img src="pictures/learningcurve.png" height="90%" alt="Kubernetes Learning curve"> <br>
+        <p>
+            Courtesy: <a href="https://www.reddit.com/r/kubernetes/comments/aexv09/learning_curves_of_some_docker_orchestration/">Reddit</a>
+        </p>
+
+        <style>
+            #learning p{
+                font-size: 10px;
+            }
+        </style>
+
+        
+    </section>
+
+    <section class="slide">
+        <h2>What is Kubernetes?</h2>
+        <p> Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available. </p>
+
+        <p id="courtesy">Definition courtesy of <a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes.io</a></p>
+
+        
+
+        <h2 class="next">Too complicated???</h2>
+
+        <style>
+            #courtesy {
+                font-size: 12px;
+            }
+        </style>
+        
+    </section>
+
+    <section class="slide">
+        <h2>What is Kubernetes?</h2>
+        <p>Kubernetes is the most popular and in-fashion container orchestration tool used today by cool kids and enterprises alike. It is open source and has a tons of 3rd party tools available. Check some of them at <a href="https://landscape.cncf.io/">https://landscape.cncf.io/</a>   </p>
+    </section>
+
+    <section class="slide">
+        <img src="pictures/k8s.png" alt="Kubernetes architecture" height="90%" >
+
+    </section>
+
+    <section class="slide">
+        <h2>What is EKS</h2>
+        <p>
+            Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane.  
+        </p>
+        <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you can use all the existing plugins and tooling from the Kubernetes community.</p>
+    </section>
+
+    <section class="slide">
+        <h2>Why EKS</h2>
+        <ol>
+            <li>Managed control plane (and optional managed worker nodes)</li>
+            <li>Easy to setup</li>
+            <li>SLA of <a href="https://aws.amazon.com/eks/sla/">99.95%</a> </li>
+            <li>Managed upgrades</li>
+            <li>Highly available and fault tolerant</li>
+            <li>Highly integrated with AWS ecosystem (ECR, IAM, EFS, VPC, Fargate, ...) </li>
+        </ol>
+        
+    </section>
+
+    <section class="slide">
+        <h2>How EKS</h2>
+        EKS provides you managed control plane. You have 3 options for worker nodes:
+        <ol>
+            <li>Self managed EC2 instances</li>
+            <li>EKS managed worker nodes (EC2 instances)</li>
+            <li>Fargate pods (Serverless)</li>
+        </ol>
+
+    </section>
+
+    <section class="slide">
+        <h2>Typical workloads</h2>
+        <ol>
+            <li>Web applications</li>
+            <li>Batch applications</li>
+            <li>Big data processing (Spark, etc)</li>
+            <li>Databases (MySQL, Postgres, Oracle, etc...)</li>
+            <li>Machine learning workloads (Training and inference)</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Storage on Kubernetes</h2>
+
+        <p>Kubernetes can be used to run stateful workloads. e.g. mysql, postgres, mongodb, kafka, elasticsearch, etc.</p>
+        <p>Many databases have been adding support for running and operating them in kubernetes.</p>
+        <p>
+            While many customers are running their stateful workloads in kubernetes it's not very mature at this point in time, but hopefully will get there eventually.
+        </p>
+        
+    </section>
+
+    <section class="slide">
+        <h2>Fargate</h2>
+        <img src="pictures/k8s.png" alt="Standard container orchestration" height="75%">
+    </section>
+
+
+
+    <section class="slide">
+        <h2>Fargate...</h2>
+        <img src="pictures/container-orchestrator.png" alt="Standard container orchestration" height="70%">
+    </section>
+
+    <section class="slide">
+        <h2>Fargate...</h2> &nbsp;&nbsp;&nbsp;
+        <img src="pictures/fargate-explanation.png" alt="Fargate explanation" height="59%">
+    </section>
+
+    <section class="slide">
+        <h2>Service Mesh</h2>
+        <p>
+            In software architecture, a service mesh is a dedicated infrastructure layer for facilitating service-to-service communications between microservices, often using a sidecar proxy.
+        </p>
+        <p>
+            Having such a dedicated communication layer can provide a number of benefits, such as providing observability into communications, providing secure connections, or automating retries and backoff for failed requests.
+        </p>
+    </section>
+
+    <section class="slide">
+        <h2>Service Mesh</h2>
+        <img src="pictures/ecommerce-basic.png" width="100%" alt="">
+    </section>
+    <section class="slide">
+        <h2>Service Mesh...</h2>
+        <img src="pictures/ecommerce-basic-with-pod.png" width="100%" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>Service Mesh</h2>
+        <img src="pictures/ecommerce-proxy.png" width="100%" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>Service Mesh</h2>
+        <img src="pictures/ecommerce-sidecar.png" width="100%" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>Observability</h2>
+        <ol>
+            <li>Logs - Cloudwatch, splunk, elasticsearch</li>
+            <li>Metrics - Cloudwatch, datadog, prometheus & grafana</li>
+            <li>Traces -  AWS X-ray, Sumologic, New relic</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Security</h2>
+        <img src="pictures/security.png" alt="">
+    </section>
+
+    <section class="slide">
+        <h2>Cost</h2>
+        <ol>
+            <li>Cost of control plane - $0.10/cluster/hour
+                <ul>
+                    <li>Much lower TCO due to managed service</li>
+                    <li>Flat cost no matter how big the cluster is</li>
+                    <li>For self managed clusters control plane cost becomes very high</li>
+                </ul>
+            </li>
+            <li>Worker nodes
+                <ul>
+                    <li>Standard ec2 instances covered under RIs, Savings plans</li>
+                    <li>Spot instances are very popular too</li>
+                    <li>Can use fargate for more efficient workloads and scaling</li>
+                </ul></li>
+        </ol>
+    </section>
+
+    <section class="slide" id="see-more">
+        <h2 class="shout">            
+            Thank you
+        </h2>
+        <style>
+            #see-more h2 {
+                font-size: 100px
+            }
+
+            #see-more img {
+                width: 0.72em;
+                height: 0.72em;
+            }
+        </style>
+    </section>
+
+
+    <div class="progress"></div>
+
+    <script src="shower/shower.js"></script>
+
+</body>
+</html>

@@ -31,5 +31,7 @@ Here is a list of the ones I have come through:
 1. AI services - https://ai-services.go-aws.com/
 1. HPC - https://www.hpcworkshops.com/
 1. AWS Chalice - https://chalice-workshop.readthedocs.io/en/latest/
+1. CICD - https://cicd-with-aws-fargate-lambda-bg.workshop.aws/en
+1. Devops - https://s3.amazonaws.com/aws-devops-workshop/site/index.html
 
 These are hands on guides. Let me know if anuy of these help you.

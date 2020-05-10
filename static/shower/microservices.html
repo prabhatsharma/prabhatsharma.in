@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Containerization and Kubernetes on AWS - Prabhat Sharma</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
+    <!-- <link rel="stylesheet" href="shower/themes/material/styles/styles.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Microservices</h1>
+        <p>Prabhat Sharma</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>What are microservices anyway?</h2>
+        <p>By <a href="https://prabhatsharma.in">Prabhat Sharma</a></p>
+        <p>Solutions Architect</p>
+        <figure>
+            <!-- <img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park"> -->
+            <figcaption class="copyright right white">
+                <!-- <a href="http://fiftyfootshadows.net/">© John Carey</a> -->
+            </figcaption>
+        </figure>
+        <style>
+            #cover h2 {
+                margin: 30px 0 0;
+                /* color: white; */
+                text-align: center;
+                font-size: 70px;
+            }
+
+            #cover p {
+                margin: 10px 0 0;
+                text-align: center;
+                /* color: white; */
+                font-style: italic;
+                font-size: 20px;
+            }
+
+            /* #cover p a {
+                color: white;
+            } */
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>What's a monolith anyway?</h2>
+
+        To understand, let's look at the source code
+
+        <img src="https://upload.wikimedia.org/wikipedia/en/e/e5/Source_Code_Poster.jpg" alt="Source code movie" class="next" >
+    </section>
+
+    <section class="slide">
+        <h2>Source code</h2>
+        <img src="pictures/sourcecode.png" width="40%" alt="source code" >
+
+    </section>
+
+    <section class="slide">
+        <h2>Monolith</h2>
+        <table>
+            <tbody >
+                <tr>
+                    <td rowspan="4" id="row1">Service</td>
+                    <td><img src="pictures/amazon-search.png" alt="" width="85%" ></td>
+                    <td rowspan="4"><img src="pictures/sourcecode.png" width="100%" alt=""></td>
+                </tr>
+                <tr> <td><img src="pictures/amazon-menu.png" alt="" width="100%" ></td></tr>
+                <tr><td><img src="pictures/amazon-slider.png" alt="" width="100%"></td></tr>
+                <tr><td><img src="pictures/amazon-books-you-may-like.png" alt="" width="100%"></td></tr>
+            </tbody>
+        </table>
+
+        <style>
+            #row1 {
+                padding-right: 20px;
+            }
+        </style>
+
+    </section>
+
+    <section class="slide">
+        <h2>Microservices</h2>
+        Service 1 - <img src="pictures/amazon-search.png" width="60%" > <img src="pictures/sourc-code-microservice.png" width="20%" > <br>
+        Service 2 - <img src="pictures/amazon-menu.png" width="60%" > <img src="pictures/sourc-code-microservice.png" width="20%" > <br> 
+        Service 3 - <img src="pictures/amazon-slider.png" width="60%"> <img src="pictures/sourc-code-microservice.png" width="20%" > <br>
+        Service 4 - <img src="pictures/amazon-books-you-may-like.png" width="60%"> <img src="pictures/sourc-code-microservice.png" width="20%" >        
+
+    </section>
+
+    <section class="slide" id="features">
+        <h2>Microservices features</h2>
+
+        <ol>
+            <li>Componentization via Services</li>
+            <li>Organized around Business Capabilities</li>
+            <li>Products not Projects</li>
+            <li>Smart endpoints and dumb pipes</li>
+            <li>Decentralized Governance</li>
+            <li>Decentralized Data Management</li>
+        </ol>
+
+        <p>Reference <a href="https://martinfowler.com/articles/microservices.html">Definition by Martin Fowler</a> </p>
+
+        <style>
+            #features p {
+                font-size: 10px;
+            }
+        </style>
+
+    </section>
+
+    <section class="slide">
+        <h2>Sample microservices architecture</h2>
+        <img src="pictures/ecommerce.png" alt="Example microservices" height="80%">
+    </section>
+
+    <section class="slide">
+        <h2>Benefits of microservices</h2>
+        <ol>
+            <li>Isolation</li>
+            <li>Productivity</li>
+            <li>Faster project development</li>
+            <li>Evolutionary</li>
+            <li>Polyglot</li>
+        </ol>
+    </section>
+
+    
+
+    <section class="slide">
+        <h2>Challenges with microservices</h2>
+        <ol>
+            <li>Increase in complexity of architecture</li>
+            <li>Testing & debugging becomes difficult</li>
+            <li>Steep learning curve of distributed architectures </li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>How to solve these challenges?</h2>
+        <ol>
+            <li>Containers and container orchestrators</li>
+            <li>Serverless compute</li>
+            <li>Service mesh</li>
+            <li>Observability tools</li>
+        </ol>
+    </section>
+
+    <section class="slide" id="see-more">
+        <h2 class="shout">            
+            Thank you
+        </h2>
+        <style>
+            #see-more h2 {
+                font-size: 100px
+            }
+
+            #see-more img {
+                width: 0.72em;
+                height: 0.72em;
+            }
+        </style>
+    </section>
+
+    <div class="progress"></div>
+
+    <script src="shower/shower.js"></script>
+
+</body>
+</html>
