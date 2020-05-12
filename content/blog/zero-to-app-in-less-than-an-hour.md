@@ -52,14 +52,14 @@ Using service: Cognito, provided by: awscloudformation
  You've opted to allow users to authenticate via Facebook.  If you haven't already, you'll need to go to https://developers.facebook.com and create an App ID
 . 
  
- Enter your Facebook App ID for your OAuth flow:  926777151111862
- Enter your Facebook App Secret for your OAuth flow:  2bb5458b6aa5ef3b0cfd5ae0d25ae75c
+ Enter your Facebook App ID for your OAuth flow:  
+ Enter your Facebook App Secret for your OAuth flow:  
   
  You've opted to allow users to authenticate via Google.  If you haven't already, you'll need to go to https://developers.google.com/identity and create an A
 pp ID. 
  
- Enter your Google Web Client ID for your OAuth flow:  1099274959826-dhf1u9v1no3rp7i0bva7uobh8vkb62rn.apps.googleusercontent.com
- Enter your Google Web Client Secret for your OAuth flow:  IbsfRoX83u-cl9_uP8mG1M6g
+ Enter your Google Web Client ID for your OAuth flow:  
+ Enter your Google Web Client Secret for your OAuth flow:  
 Successfully added resource todo1682960f locally
 
 Some next steps:
