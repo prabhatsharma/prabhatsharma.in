@@ -33,5 +33,8 @@ Here is a list of the ones I have come through:
 1. AWS Chalice - https://chalice-workshop.readthedocs.io/en/latest/
 1. CICD - https://cicd-with-aws-fargate-lambda-bg.workshop.aws/en
 1. Devops - https://s3.amazonaws.com/aws-devops-workshop/site/index.html
+1. AWS Step functions - https://step-functions-workshop.go-aws.com/
 
-These are hands on guides. Let me know if anuy of these help you.
+These are hands on guides. Let me know if any of these help you.
+
+Here is the awesome site dedicated to AWS workshops that has a lot more - https://awesome-aws-workshops.com/
