@@ -34,6 +34,7 @@ Here is a list of the ones I have come through:
 1. CICD - https://cicd-with-aws-fargate-lambda-bg.workshop.aws/en
 1. Devops - https://s3.amazonaws.com/aws-devops-workshop/site/index.html
 1. AWS Step functions - https://step-functions-workshop.go-aws.com/
+1. Observabilty through cloudwatch and X ray - https://observability.workshop.aws/
 
 These are hands on guides. Let me know if any of these help you.
 
