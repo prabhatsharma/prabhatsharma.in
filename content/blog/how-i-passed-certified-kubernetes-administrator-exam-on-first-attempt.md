@@ -8,6 +8,9 @@ author: Prabhat Sharma
 type: post
 ---
 
+Update on Aug 18th 2020 - Added practice tests link at the end
+
+------------
 
 I have been working for past couple of months on kubernetes and advising people on how to implement best practices using kubernetes for building applications. I wanted to test my knowledge and figured I should take the CKA exam to validate my knowledge of things. I began preparing about one and a half months ago for the certification and found its preparation to be as hard as AWS SA Pro exam which is considered to be one of the difficult certifications.
 
@@ -116,3 +119,8 @@ $ k run
 This will show the help. Help will have several examples of creating a pod, deployment, job, scheduled job etc which you could simply copy. Be familiar with the options by practicing them.
 
 I also joined CKA channel for kubernauts where aspirants hangout and are facilitated by good guys from kubernauts. You might want to join this [channel](https://kubernauts.slack.com)
+
+
+1st exam practice test [CKA exam practice test 1](/blog/cka-practice-test-1)
+
+2nd exam practice test [CKA exam practice test 2](/blog/cka-practice-test-2)
