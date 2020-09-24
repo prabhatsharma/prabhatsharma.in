@@ -8,11 +8,13 @@ author: Prabhat Sharma
 type: post
 ---
 
-More than 2 years ago when I passed CKA, there were fewer resources available for me to study. I had to create a lot of resources myself during my cert preparation. During many of the certification exams that I have taken over a period I have realized that having a set of of test questions is incredibly helpful. I am posting the below practice exam questions that will be helpful to those aspiring to pass CKA. Many of these questions have been sourced from internet, and many of these have been written by me. There are 2 sets of practice tests that have some of the overlapping questions.
+More than 2 years ago when I passed CKA, there were fewer resources available for me to study. I had to create a lot of resources myself during my cert preparation. During many of the certification exams that I have taken over a period I have realized that having a set of of test questions is incredibly helpful. I am posting the below practice exam questions that will be helpful to those aspiring to pass CKA. 
+
+Many of these questions have been sourced from internet, and many of these have been written by me. There are 2 sets of practice tests that have some of the overlapping questions.
 
 I would recommend that you practice these in a compressed timeline (preferably finish them in 1.5 Hrs as opposed to 3 Hrs) at your home. Idea is that, if you are able to finish the exam in 1.5 Hrs at your home you will be able to finish the exam in 3 Hrs an a much more tense situation when you are under pressure.
 
-Here the first set:
+Here is the first set:
 
 1. Create a node that has an SSD and label it as such. 
     1. Create a pod that is only scheduled on SSD nodes.
@@ -68,5 +70,7 @@ Here the first set:
 
 
 2nd set is at [CKA exam practice test 2](/blog/cka-practice-test-2)
+
+Feel free to add any questions in the comment section that you have created or have found in the wild.
 
 
