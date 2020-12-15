@@ -18,7 +18,7 @@ Essentially you have 3 steps to perform
 
     For example you have your application running on an EC2 instance/Lambda/ECS Task that has the role *myAppIAMRole* . Your app needs to assume the quicksight-embedded role.
 
-2. Register the user who will use the dashboard in quicksight. This is required as quicksight pricing is based on per user/session and provide a session name. If the user already exits then register user API will fail. There are 2 ways to deal with it. First check if the user already exists and if it does, then don't register the user or simply let the registerUser call fail.
+2. Register the user who will use the dashboard in quicksight. This is required as quicksight pricing is based on per user/session and provide a session name. If the user already exists then register user API will fail. Ideally you would want to register the user when user first accesses quicksight or you can pre-create the user in quicksight so you don't have to register them programmatically. Having users in quicksight does not cost you anything. It costs you only when they access the dashboards.
 
 3. Call the GetDashboardEmbedUrl API and get the URL. The URL that you receive can be used only once.
 
