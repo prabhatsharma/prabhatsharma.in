@@ -33,6 +33,7 @@ So what are the options?
 1. [Sonic](https://github.com/valeriansaliou/sonic) written in Rust
 1. [Blast](https://github.com/mosuka/blast) written in Go using [Bleve](https://github.com/blevesearch/bleve)
 1. [Typesense](https://github.com/typesense/typesense) written in c++
+1. [MeiliSearch](https://github.com/meilisearch/MeiliSearch) written in Go
 
 In general I do not have great love for stuff written in Java, primarily because of huge requirements of JVM. And the non-JVM alternatives are really cool and and can be run with a fraction of resources if you don't need all the features of elasticsearch (A great many of us will not need all features)
 
