@@ -30,7 +30,7 @@ None of the existing solutions today provide that. I have explored many and late
 Rae is a search engine for doing full text search on documents. It is open source (Apache 2.0) and built in Go. Instead of building the indexing engine from scratch Rae is built on top of bluge, an excellent indexing library. Some features of Rae:
 
 1. Schema-less indexing
-1. Low resource utilization
+1. Low resource utilization (Less than 50 MB RAM to start)
 1. Easy to use GUI
 1. Builtin authentication
 1. Simple APIs for programmatic usage
