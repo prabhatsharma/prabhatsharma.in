@@ -13,7 +13,7 @@ A search engine is a piece of software that can search for any text in the data 
 
 # Why Rae Search?
 
-I was looking for a simple piece of software to index my logs that did not require huge amounts of resources and after a decent amount of research, I could not find something that could do it. 
+I was looking for a simple piece of software to index my logs that did not require huge amounts of resources and after a decent amount of research and I could not find something that could do it. 
 
 What was I looking for:
 
