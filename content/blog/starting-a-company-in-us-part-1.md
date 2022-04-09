@@ -34,7 +34,7 @@ There are many options here. I was highly recommended Silicon Valley Bank. They 
 
 ## Fund raising
 
-If this is a new setup you will most likely be raising funds from VCs/angels using SAFE notes. I struggled and wasted some time during this phase. I though I could issue SAFE notes using a carta. That was a mistake. I ended up paying for carta, doing manual work of getting the SAFE notes signed using docusign. You could totally avoid carta to begin with.
+If this is a new setup you will most likely be raising funds from VCs/angels using SAFE notes. I struggled and wasted some time during this phase. I thought I could issue SAFE notes using a carta. That was a mistake. I ended up paying for carta, doing manual work of getting the SAFE notes signed using docusign. You could totally avoid carta to begin with.
 
 Do yourself a favor and just use Clerky for issuing SAFE notes. It is fully automated.
 
