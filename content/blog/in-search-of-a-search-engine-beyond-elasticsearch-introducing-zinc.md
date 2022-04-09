@@ -25,7 +25,7 @@ What was I looking for:
 
 None of the existing solutions today provide that. I have explored many and later in this blog I have provided a list of some main street products that I looked at and also some softwares on the fringes created by individuals as hobby/side projects hoping to use them or build more on top of them. I looked at these before I figured out that I will have to build something new to meet my above needs.
 
-I also looked at Loki from Grafan labs which is a fantastic sollution, but it does not have full text search capability and requires grafana as well.
+I also looked at Loki from Grafana labs which is a fantastic solution, but it does not have full text search capability and requires grafana as well.
 
 I tried working with typesense, sonic and toshi and extend them trying to develop something with them as well, but it did not work.
 
@@ -190,5 +190,10 @@ A little note on indexing libraries. Remember that you can't use any of these of
 
 # Conclusion
 
-So here we go. We saw a host of search engines that you can use and why I built Zinc. 
+
+So here we go. We saw:
+1. the kind of search engines from primary use-case point of view.
+1. that elasticsearch/opensearch is 
+1. Indexing libraries available today.
+1. You can use and why I built Zinc. 
 
